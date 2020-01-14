@@ -147,7 +147,7 @@ object AdManager {
                 override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                     try {
                         val ad = p0.getValue(Ad::class.java)
-                        if (ad?.toString()?.contains(text) == true && ad.isApprove) {
+                        if (ad?.toString()?.contains(text, true) == true && ad.isApprove) {
                             ad.let { listSimpleSearchResult.add(it) }
                             listener.onSearchSimpleResult()
                         }
