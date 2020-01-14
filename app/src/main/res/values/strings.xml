@@ -1120,4 +1120,6 @@
 Нажав кнопку регистрация Вы подтверждаете что ознакомились с данными правилами и условиями.</string>
     <string name="phone">Номер телефона</string>
     <string name="search">Поиск</string>
+    <string name="lbl_close">Close</string>
+    <string name="reload">Reload</string>
 </resources>

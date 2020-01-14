@@ -1,7 +1,6 @@
 package com.auto.autoads.presenter.list
 
 import com.auto.autoads.model.server.IListAdListener
-import com.auto.autoads.model.server.TestServerEmulator
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.list.IListActivity
 
@@ -16,7 +15,6 @@ class ListPresenter: IListPresenter, IListAdListener {
     }
 
     private fun initList() {
-        TestServerEmulator.getListAdMock(this, 1000)
 
     }
 
