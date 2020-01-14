@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.main.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_container_top"
+            android:padding="12dp"
+            android:background="#4E4E4E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/logo_main"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cv"
+                android:layout_width="180dp"
+                android:layout_height="80dp"/>
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_below="@+id/cv"
+                android:background="@drawable/back_edit_text"
+                android:padding="8dp"
+                android:layout_marginTop="12dp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:hint="@string/search_car"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:src="@drawable/ic_profile"
+            android:layout_alignParentEnd="true"
+            android:padding="12dp"
+            android:onClick="profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAddAd"
+            android:layout_below="@id/rl_container_top"
+            android:layout_marginTop="12dp"
+            android:textColor="#fff"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/back_button_red"
+            android:text="@string/add_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/flAdBannerTop"
+            android:layout_below="@id/btnAddAd"
+            android:background="#E3E3E3"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_remove"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"/>
+
+        <Button
+            android:id="@+id/btnSearchExtension"
+            android:layout_below="@id/flAdBannerTop"
+            android:text="@string/extension_search"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/back_button_green"
+            android:textColor="#fff"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_search_white"
+            android:paddingHorizontal="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:id="@+id/space"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btnSearchExtension"
+            android:layout_width="1dp"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:id="@+id/rl_containers"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="horizontal"
+            android:layout_below="@id/space"
+            android:layout_width="match_parent"
+            android:layout_height="95dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_1"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="#FFFFFF"
+                android:layout_toStartOf="@id/rl_2"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_1"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_1"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_2"
+                android:background="#fff"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_2"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_2"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_3"
+                android:background="#fff"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_3"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_3"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_4"
+                android:background="#fff"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_toEndOf="@id/rl_3"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_4"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_4"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_below="@+id/rl_containers">
+
+            <RelativeLayout
+                android:id="@+id/rl_5"
+                android:background="#fff"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_5"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_5"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_6"
+                android:background="#fff"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_6"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_6"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_7"
+                android:background="#fff"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_7"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_7"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_8"
+                android:background="#fff"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <ImageView
+                    android:id="@+id/iv_ad_8"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/title_ad_8"
+                    android:text="Title"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/flAdBannerBottom"
+            android:layout_below="@id/ll_bottom"
+            android:background="#D8D8D8"
+            android:scaleType="fitXY"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            tools:src="@drawable/ic_remove"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"/>
+
+        <Button
+            android:id="@+id/tvConnectAdmin"
+            android:text="@string/connectAdmin"
+            android:textColor="#fff"
+            android:layout_margin="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/back_button_green"
+            android:onClick="connectAdmin"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/flAdBannerBottom"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</ScrollView>

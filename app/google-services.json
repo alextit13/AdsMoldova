@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "704746113889",
+    "firebase_url": "https://autoads-c8f9c.firebaseio.com",
+    "project_id": "autoads-c8f9c",
+    "storage_bucket": "autoads-c8f9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704746113889:android:1a356b25981a4a097f9320",
+        "android_client_info": {
+          "package_name": "com.auto.autoads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704746113889-6nvt4driqkfquif2md6lvtavmdkp5fti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.auto.autoads",
+            "certificate_hash": "d621e8ff740765fef280a66d5a2c1480a9a33364"
+          }
+        },
+        {
+          "client_id": "704746113889-a23o697ui8a1q6m0mv3gn430aivn2c8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTsN7a-LzjQ8FPyQQVaTljJ-PzlZK6B2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704746113889-a23o697ui8a1q6m0mv3gn430aivn2c8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

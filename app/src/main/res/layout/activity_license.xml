@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.register.License"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tvLicense"
+        android:textColor="#000"
+        android:text="@string/license"
+        android:textSize="20sp"
+        android:scrollbars = "vertical"
+        android:layout_above="@id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:id="@+id/spacer"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
+
+    <Button
+        android:id="@+id/cancel"
+        android:text="Отмена"
+        android:onClick="cancel"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/spacer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Принять"
+        android:onClick="confirm"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/spacer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".view.search.DetailSearchActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llAddContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--легковые, груз..-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Тип" />
+            <Spinner
+                android:id="@+id/spinnerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+<!--
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Категория" />
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Марка" />
+
+            <Spinner
+                android:id="@+id/spinnerMarka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Модель" />
+
+            <Spinner
+                android:id="@+id/spinnerModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />-->
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etYearFrom"
+                    android:hint="Год от"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/etYearTo"
+                    android:hint="Год до"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvTypeFuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Тип топлива" />
+
+            <Spinner
+                android:id="@+id/spinnerTypeFuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etEngineValueFrom"
+                    android:hint="Объем от"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/etEngineValueTo"
+                    android:hint="Объем до"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etPriceFrom"
+                    android:hint="Цена от"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/etPriceTo"
+                    android:hint="Цена до"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvTransmission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="КПП" />
+
+            <Spinner
+                android:id="@+id/spinnerTypeTransmission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etDistanceFrom"
+                    android:hint="Пробег от"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/etDistanceTo"
+                    android:hint="Пробег до"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/typeBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Тип кузова" />
+
+            <Spinner
+                android:id="@+id/spinnerTypeBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:text="@string/cancel"
+                android:onClick="cancelSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:text="Поиск"
+                android:onClick="searchDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

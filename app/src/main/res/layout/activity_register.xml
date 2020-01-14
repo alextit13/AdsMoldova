@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:id="@+id/rlContainerRegister"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_centerInParent="true"
+            android:hint="@string/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_below="@id/etEmail"
+            android:hint="@string/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_below="@+id/etPassword"
+            android:hint="@string/confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_below="@id/etConfirmPassword"
+            android:layout_centerHorizontal="true"
+            android:text="@string/registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_below="@id/btnConfirm"
+            android:layout_centerHorizontal="true"
+            android:text="@string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressRegister"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</FrameLayout>

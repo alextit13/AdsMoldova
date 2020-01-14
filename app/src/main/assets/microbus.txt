@@ -1,0 +1,44 @@
+{"Citroen":
+["Berlingo","Jumper","Jumpy","Другое"],
+"Chevrolet":
+["Astro","Express","Другое"],
+"Chrysler":
+["Grand Voyager","Voyager","Другое"],
+"DAF":
+["Другое"],
+"Dodge":
+["Grand Caravan","Ram","Другое"],
+"Fiat":
+["Doblo","Ducato","Scudo","Другое"],
+"Ford":
+["Econoline","Econovan","Tourneo","Transit","TransitCustom"],
+"ГАЗ":
+["Газель","Другое"],
+"GMC":
+["Savanna","Другое"],
+"Hyundai":
+["H1","H200","Другое"],
+"Isuzu":
+["Другое"],
+"Iveco":
+["Daily","Другое"],
+"Kia":
+["Pregio","Другое"],
+"Mercedes-Benz":
+["Atego","Citan","Sprinter","Vanio","Viano","Vito","Другое"],
+"Nissan":
+["Interstar","NV200","NV300","Primastar","Serena","Другое"],
+"Opel":
+["Movano","Vivaro","Другое"],
+"Peugeot":
+["Boxer","Expert","J5","Partner","Traveller","Другое"],
+"Renault":
+["Mascott","Master","Maxity","Trafic","Другое"],
+"Subaru":
+["Libero","Другое"],
+"Toyota":
+["Hiace","Proace Verso","Другое"],
+"УАЗ":
+["452","Другое"],
+"Volkswagen":
+["Caddy","California","Caravelle","Crafter","LT","Multivan","Transporter","Другое"]}

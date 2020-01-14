@@ -1,0 +1,1123 @@
+<resources>
+    <string name="app_name">sellavto</string>
+    <string name="search_car">Поиск авто</string>
+    <string name="add_ad">+   Добавить объявление</string>
+    <string name="extension_search">Расширенный поиск</string>
+    <string name="moto">Мото</string>
+    <string name="parts">Запчасти</string>
+    <string name="tires">Шины</string>
+    <string name="services">Услуги</string>
+    <string name="connectAdmin">Связь с админом</string>
+    <string name="login">Войти</string>
+    <string name="register">Регистрация</string>
+    <string name="login_or_email">Логин или Email</string>
+    <string name="password">Пароль</string>
+    <string name="cancel">Отмена</string>
+    <string name="Email">Email</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="profile">Профиль</string>
+    <string name="exit_from_account">Выйти из аккаунта</string>
+    <string name="password_not_equals">Пароли не совпадают</string>
+    <string name="complete_all_fields">Заполните все поля</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="title_ad">Название объявления</string>
+    <string name="complete">Готово</string>
+    <string name="description">Описание</string>
+    <string name="add_will_be_check">Объявление будет доступно когда пройет проверку!</string>
+    <string name="enter_data">Укажите все необходимые данные</string>
+    <string name="success">Успешно!</string>
+
+
+    <!-- DATA -->
+    <string name="cars">
+        {"Acura":["CL","MDX","RDX","TL","TSX","ZDX","Другое"],
+"Alfa-Romeo":["145","146","147","156","159","164","166","Brera","Crosswagon Q4","Giulia","Giulietta","GT","GTV","Mito","Spider","Stelvio"
+,"Другое"],
+"Aston Martin":
+["DB9"
+,"DBS"
+,"Lagonda"
+,"Другое"],
+"Audi":[
+"802"
+,"90"
+,"100"
+,"200"
+,"A1"
+,"A2"
+,"A3"
+,"A4"
+,"A5"
+,"A6"
+,"A7"
+,"A8"
+,"Allroad"
+,"Cabrio"
+,"Coupe"
+,"Q3"
+,"Q5"
+,"Q7"
+,"Q8"
+,"Quattro"
+,"R8"
+,"Rs2"
+,"Rs4"
+,"Rs6"
+,"S2"
+,"S3"
+,"S4"
+,"S5"
+,"S6"
+,"S8"
+,"SQ7"
+,"TT"
+,"V8"
+,"Другое"],
+"Bentley":[
+  "Другое"],
+"BMW":[
+"Series1"
+,"Series2"
+,"Series3"
+,"3GT"
+,"Series4"
+,"Series5"
+,"5GT"
+,"Series6"
+,"Series7"
+,"Series8"
+,"I Series"
+,"M Models"
+,"X1"
+,"X2"
+,"X3"
+,"X4"
+,"X4 M"
+,"X5"
+,"X5 M"
+,"X6"
+,"X6 M"
+,"X7"
+,"Z Series"
+,"Другое"],
+"Briliance":[
+"BS4"
+,"BS6"
+,"Другое"],
+"Buick":
+["Другое"],
+"Cadillac":[
+"ATS"
+,"BLS"
+,"CTS"
+,"DeVille"
+,"Eldorado"
+,"Escalade"
+,"Fleetwood"
+,"Seville"
+,"SRX"
+,"XT5"
+,"Другое"],
+"Chevrolet":[
+"2500"
+,"Alero"
+,"Astro"
+,"Aveo"
+,"Blazer"
+,"Bolt"
+,"Camaro"
+,"Captiva"
+,"Corvette"
+,"Cruze"
+,"Epica"
+,"Equinox"
+,"Express"
+,"HHR"
+,"Kalos"
+,"Lacetti"
+,"Malibu"
+,"Matiz"
+,"Monte Carlo"
+,"Nubira"
+,"Orlando"
+,"S-10"
+,"Silverado"
+,"Sonic"
+,"Spark"
+,"Tahoe"
+,"TrailBlazer"
+,"Trans Sport"
+,"Trax"
+,"Venture"
+,"Volt"
+,"Другое"],
+"Chrysler":[
+"200"
+,"300"
+,"300C"
+,"Crossfire"
+,"Grand Voyager"
+,"Le Baron"
+,"LHS"
+,"Neon"
+,"New Yorker"
+,"Pacifica"
+,"PT Cruiser"
+,"Sebring"
+,"Stratus"
+,"Town Country"
+,"Voyager"
+,"Другое"],
+"Citroen":[
+"Berlingo"
+,"C-CROSSER"
+,"C-Elysee"
+,"C1"
+,"C2"
+,"C3"
+,"C3  Aircross"
+,"C3 Picasso"
+,"C3 Pluriel"
+,"C4"
+,"C4 Aircross"
+,"C4 Cactus"
+,"C4 Picasso"
+,"C5"
+,"C6"
+,"C8"
+,"CX"
+,"DS"
+,"DS3"
+,"DS4"
+,"DS5"
+,"Evasion"
+,"Grand C4 Picasso"
+,"Jumpy"
+,"Nemo"
+,"Saxo"
+,"Spacetourer"
+,"Xantia"
+,"XM"
+,"Xsara"
+,"Xsara Picaso"
+,"Другое"],
+"Dacia": [
+"Dokker"
+,"Duster"
+,"Lodgy"
+,"Logan"
+,"Sandero"
+,"Другое"],
+"Daewoo":[
+"Korando"
+,"Rezzo"
+,"Tacuma"
+,"Другое"],
+"Daihatsu":[
+"Charade"
+,"Cuore"
+,"Gran Move"
+,"Materia"
+,"Rocky"
+,"Sirion"
+,"Terios"
+,"Trevis"
+,"YRV"
+,"Другое"],
+"Dodge":[
+"Avenger"
+,"Caliber"
+,"Caravan"
+,"Challenger"
+,"Charger"
+,"Dart"
+,"Durango"
+,"Grand Caravan"
+,"Intrepid"
+,"Journey"
+,"Nitro"
+,"Ram"
+,"Stealth"
+,"Stratus"
+,"Viper"
+,"Другое"],
+"Ferrari":[
+"Другое"],
+"Fiat":[
+"124"
+,"126"
+,"500"
+,"500 Abarth"
+,"500L"
+,"500X"
+,"Albea"
+,"Barchetta"
+,"Brava"
+,"Bravo"
+,"Croma"
+,"Doblo"
+,"Ducato"
+,"Fiorino"
+,"Freemont"
+,"Fullback"
+,"Grande Punto"
+,"Multipla"
+,"Panda"
+,"Punto"
+,"Punto Evo"
+,"Qubo"
+,"Scudo"
+,"Sedici"
+,"Stilo"
+,"Tipo"
+,"Ulysse"
+,"Другое"],
+"Fisker":[
+"Другое"],
+"Ford":[
+"B-MAX"
+,"Bronco"
+,"C-MAX"
+,"Capri"
+,"Connect Tourneo"
+,"Cougar"
+,"Courier"
+,"Crown Victoria"
+,"Econoline"
+,"Econovan"
+,"EcoSport"
+,"Edge"
+,"Escape"
+,"Escort"
+,"Excursion"
+,"Expedition"
+,"Explorer"
+,"F150"
+,"F250"
+,"F350"
+,"Fiesta"
+,"Five Hundred"
+,"Flex"
+,"Focus"
+,"Focus RS"
+,"Focus ST"
+,"Fusion"
+,"Galaxy"
+,"Granada"
+,"Grand C-MAX"
+,"Ka"
+,"Ka+"
+,"Kuga"
+,"Maverick"
+,"Mondeo"
+,"Mustang"
+,"Probe"
+,"Puma"
+,"Ranger"
+,"S-MAX"
+,"Scorpio"
+,"Sierra"
+,"Taunus"
+,"Taurus"
+,"Thunderbird"
+,"Tourneo"
+,"Tourneo Connect"
+,"Tourneo Custom"
+,"Transit"
+,"Transit Connect"
+,"Transit Custom"
+,"Windstar"
+,"Другое"],
+"GMC":[
+"Acadia"
+,"Envoy"
+,"Savanna"
+,"Yukon"
+,"Другое"],
+"Geely":[
+"CK"
+,"Fc"
+,"MK"
+,"Otaka"
+,"Vision"
+,"Другое"],
+"Great Wall":[
+"Hover"
+,"Wingle"
+,"Другое"],
+"Honda":[
+"Accord"
+,"City"
+,"Civik"
+,"Clarity"
+,"CR-V"
+,"CRX"
+,"CRZ"
+,"FIT"
+,"FR-V"
+,"HR-V"
+,"Insight"
+,"Jazz"
+,"Legend"
+,"Logo"
+,"Odyssey"
+,"Pilot"
+,"Prelude"
+,"S2000"
+,"Stream"
+,"Другое"],
+"Hummer":[
+"H1"
+,"H2"
+,"H3"
+,"Другое"],
+"Hyundai":[
+"Accent"
+,"Coupe"
+,"Elantra"
+,"Galloper"
+,"Genesis"
+,"Getz"
+,"Grand Santa Fe"
+,"Grandeur"
+,"H1"
+,"I10"
+,"I20"
+,"I30"
+,"I40"
+,"IONIQ"
+,"Ix20"
+,"Ix35"
+,"Ix55"
+,"Kona"
+,"Matrix"
+,"Santa Fe"
+,"Sonata"
+,"Terracan"
+,"Trajet"
+,"Tucson"
+,"Veloster"
+,"XG"
+,"Другое"],
+"Infiniti":[
+"EX30"
+,"EX35"
+,"EX37"
+,"FX"
+,"FX30"
+,"FX35"
+,"FX37"
+,"FX50"
+,"G35"
+,"G37"
+,"I35"
+,"JX35"
+,"M30"
+,"M37"
+,"M56"
+,"Q30"
+,"Q50"
+,"QX30"
+,"QX50"
+,"QX56"
+,"QX70"
+,"Другое"],
+"Isuzu":[
+"D-Max"
+,"Trooper"
+,"Vehi Cross"
+,"Другое"],
+"Iveco":[
+"Daily"
+,"35-12"
+,"Massif"
+,"Другое"],
+"Jaguar":[
+"E-Pace"
+,"E-Type"
+,"F-Pace"
+,"F-Type"
+,"MK II"
+,"S-Type"
+,"Sovereign"
+,"X-Type"
+,"XE"
+,"XF"
+,"XJ"
+,"XJ-Series"
+,"XJ12"
+,"XJ40"
+,"XJ6"
+,"XJ8"
+,"XJR"
+,"XJSXK"
+,"XK8"
+,"XKR"
+,"Другое"],
+"Jeep":[
+"Cherokee"
+,"Commander"
+,"Compass"
+,"Grand Cherokee"
+,"Liberty"
+,"Patriot"
+,"Renegade"
+,"Willis"
+,"Wrangler"
+,"Другое"],
+"Kia":[
+"Carens"
+,"Carnival"
+,"Cee`d"
+,"Cerato"
+,"Magentis"
+,"Niro"
+,"Opirus"
+,"Optima"
+,"Picanto"
+,"Pregio"
+,"Pro cee`d"
+,"Retona"
+,"Rio"
+,"Sedona"
+,"Sorento"
+,"Soul"
+,"Sportage"
+,"Stinger"
+,"Stonic"
+,"Venga"
+,"Другое"],
+"Lamborghini":[
+"Другое"],
+"Lancia":[
+"Delta"
+,"Kappa"
+,"Lybra"
+,"Musa"
+,"Phedra"
+,"Thema"
+,"Thesis"
+,"Voyager"
+,"Y"
+,"Ypsilon"
+,"Zeta"
+,"Другое"],
+"Land Rover":[
+"Defender"
+,"Discovery"
+,"Discovery Sport"
+,"Evoque"
+,"Freelander"
+,"Range Rover"
+,"Range Rover Sport"
+,"Range Rover Velar"
+,"Другое"],
+"Lexus":[
+"CT Series"
+,"Es Series"
+,"GS Series"
+,"GX Series"
+,"HS Series"
+,"IS Series"
+,"LFA"
+,"LS Series"
+,"LX Series"
+,"NX Series"
+,"RX Series"
+,"SC Series"
+,"Другое"],
+"Lincoln":[
+"Aviator"
+,"Continental"
+,"LS"
+,"Mark"
+,"MKT"
+,"MKX"
+,"MKZ"
+,"Navigator"
+,"Town Car"
+,"Zephyr"
+,"Другое"],
+"Maserati":[
+"4200"
+,"Biturbo"
+,"Ghibil"
+,"GranCabrio"
+,"Gransport"
+,"GranTurismo"
+,"Levante"
+,"Quattroporte"
+,"Другое"],
+"Mazda":[
+"121"
+,"2"
+,"3"
+,"323"
+,"323f"
+,"5"
+,"6"
+,"626"
+,"929"
+,"B Series"
+,"BT-50"
+,"CX-3"
+,"CX-5"
+,"CX-7"
+,"CX-9"
+,"Millenia"
+,"MPV"
+,"MX-5"
+,"MX-6"
+,"Premacy"
+,"RX-8"
+,"Tribute"
+,"Xedos6"
+,"Xedos9"
+,"Другое"],
+"Mercedes-Benz":[
+"190"
+,"A Класс"
+,"AMG GT"
+,"B Класс"
+,"C Класс"
+,"CL Класс"
+,"CLA"
+,"CLC Класс"
+,"CLK Класс"
+,"CLS Класс"
+,"Citan"
+,"E Класс"
+,"G Класс"
+,"GLA"
+,"GLC"
+,"GLE"
+,"GLE Coupe"
+,"GLK Класс"
+,"GLS Класс"
+,"ML Класс"
+,"R Класс"
+,"S Класс"
+,"SL Класс"
+,"SLK Класс"
+,"SLS "
+,"Series w123"
+,"Series w124"
+,"V Класс"
+,"Vaneo"
+,"Viano"
+,"Vito"
+,"X Класс"
+,"Другое"],
+"Mercury":[
+"Другое"],
+"MG":[
+"MGB"
+,"MGF"
+,"TF"
+,"ZT"
+,"Другое"],
+"Mini":[
+"1300"
+,"Clubman"
+,"Cooper"
+,"Cooper S "
+,"Cooper SD"
+,"Countryman"
+,"One"
+,"Paceman"
+,"Другое"],
+"Mitsubishi":[
+"3000 GT"
+,"ASX"
+,"Carisma"
+,"Colt"
+,"Delica"
+,"Eclipse"
+,"Eclipse Cross"
+,"FTO"
+,"Galant"
+,"Grandis"
+,"L200"
+,"Lancer"
+,"Lancer Evolution"
+,"Outlander"
+,"Pajero"
+,"Pajero Pinin"
+,"Pajero Sport"
+,"Shogun"
+,"Sigma"
+,"Space Gear"
+,"Space Runner"
+,"Space Star"
+,"Space Wagon"
+,"Другое"],
+"Morgan":[
+"Другое"],
+"Nissan":[
+"200 SX"
+,"300 ZX"
+,"350Z"
+,"370Z"
+,"Almera "
+,"Almera Tino"
+,"Altima"
+,"Armada"
+,"Bluebird"
+,"E- NV200"
+,"Evalia"
+,"GT-R"
+,"Interstar"
+,"Juke"
+,"Leaf"
+,"Maxima"
+,"Micra"
+,"Murano"
+,"Navara"
+,"Note"
+,"NV200"
+,"NV300"
+,"Pathfinder"
+,"Patrol"
+,"Pick-Up"
+,"Pixo"
+,"Primastar"
+,"Primera"
+,"Pulsar"
+,"Qashqai"
+,"Qashqai+2"
+,"Quest"
+,"Rogue"
+,"Sentra"
+,"Sunny"
+,"Terrano"
+,"Tiida"
+,"Titan"
+,"Versa"
+,"X-Trail"
+,"Другое"],
+"Oldsmobile":[
+"Другое"],
+"Opel":[
+"Adam"
+,"Aglia"
+,"Ampera"
+,"Antara"
+,"Ascona"
+,"Astra"
+,"Calibra"
+,"Campo"
+,"Cascada"
+,"Combo"
+,"Corsa"
+,"Crossland X"
+,"Frontera"
+,"Grandland X"
+,"Insignia"
+,"Kadett"
+,"Karl"
+,"Manta"
+,"Meriva"
+,"Mokka"
+,"Mokka X"
+,"Monterey"
+,"Movano"
+,"Omega"
+,"Rekord"
+,"Senator"
+,"Signum"
+,"Sintra"
+,"Tigra"
+,"Vectra"
+,"Vivaro"
+,"Zafira"
+,"Zafira tourer"
+,"Другое"],
+"Peugeot":[
+"106"
+,"107"
+,"108"
+,"205"
+,"206"
+,"207"
+,"208"
+,"301"
+,"306"
+,"307"
+,"308"
+,"309"
+,"405"
+,"406"
+,"407"
+,"508"
+,"605"
+,"607"
+,"806"
+,"807"
+,"1007"
+,"2008"
+,"3008"
+,"4007"
+,"4008"
+,"5008"
+,"Bipper"
+,"Expert"
+,"Partner"
+,"Другое"],
+"Plymouth":[
+"Другое"],
+"Pontiac":[
+"Другое"],
+"Porsсhe":[
+"911"
+,"914"
+,"924"
+,"928"
+,"944"
+,"Boxter"
+,"Cayenne"
+,"Cayman"
+,"Macan"
+,"Panamera"
+,"Другое"],
+"Renault":[
+"Scenic"
+,"Talisman"
+,"Thalia"
+,"Trafic"
+,"Twingo"
+,"Vel Satis"
+,"Wind"
+,"Zoe"
+,"Другое"],
+"Rolls-Royce":[
+"Другое"],
+"Rover":[
+"25"
+,"45"
+,"75"
+,"100 Series"
+,"200 Series"
+,"400 Series"
+,"600 Series"
+,"800 Series"
+,"Streetwise"
+,"Другое"],
+"Saab":[
+"9-3"
+,"9-4X"
+,"9-5"
+,"90"
+,"900"
+,"9000"
+,"96"
+,"Другое"],
+"Saturn":[
+"Другое"],
+"Seat":[
+"Alhambra"
+,"Altea"
+,"Altea XL"
+,"Arona"
+,"Arosa"
+,"Ateca"
+,"Cordoba"
+,"Exeo"
+,"Ibiza"
+,"Leon"
+,"Mii"
+,"Tarraco"
+,"Toledo"
+,"Другое"],
+"Skoda":[
+"Citigo"
+,"Fabia"
+,"Felicia"
+,"Karoq"
+,"Kodiaq"
+,"Octavia"
+,"Praktik"
+,"Rapid"
+,"Roomster"
+,"Superb"
+,"Yeti"
+,"Другое"],
+"Smart":[
+"Coupe"
+,"Forfour"
+,"Fortwo"
+,"Fortwo Coupe"
+,"MCC"
+,"Roadster"
+,"Другое"],
+"SsangYong":[
+"Actyon"
+,"Actyon Sports"
+,"Chairman"
+,"Korando"
+,"Kyron"
+,"Musso"
+,"Rexton"
+,"Rodius"
+,"Tivoli"
+,"Другое"],
+"Subaru":[
+"BRZ"
+,"Forester"
+,"Impreza"
+,"Impreza WRX"
+,"Justy"
+,"Legacy"
+,"Levorg"
+,"Libero"
+,"Outback"
+,"Trezia"
+,"Tribeca"
+,"XV"
+,"Другое"],
+"Suzuki":[
+"Alto"
+,"Baleno"
+,"Celerio"
+,"Grand Vitara"
+,"Ignis"
+,"Jimny"
+,"Kizashi"
+,"Liana"
+,"Samurai"
+,"Splash"
+,"Super-Carry"
+,"Swift"
+,"SX4"
+,"SX4-Cross"
+,"Vitara"
+,"Wagon R+"
+,"XL7"
+,"Другое"],
+"Tesla":[
+"Model 3"
+,"Model  S"
+,"Model X"
+,"Другое"],
+"Toyota":[
+"4Runner"
+,"Auris"
+,"Avalon"
+,"Avensis"
+,"Avensis Verso"
+,"Aygo"
+,"C-HR"
+,"Camry"
+,"Carina"
+,"Celica"
+,"Corolla"
+,"Corolla Verso"
+,"FJ Cruiser"
+,"GT 86"
+,"Hiace"
+,"Highlander"
+,"Hilux"
+,"IQ"
+,"Land Cruiser"
+,"Matrix"
+,"MR 2"
+,"Paseo"
+,"Picnic"
+,"Prius C"
+,"Prius+"
+,"Proace"
+,"Proace Verso"
+,"RAV4"
+,"Sequoia"
+,"Sienna"
+,"Solara"
+,"Supra"
+,"Tacoma"
+,"Tundra"
+,"Urban Cruiser"
+,"Venza"
+,"Verso"
+,"Verso-S"
+,"Yaris"
+,"Yaris Verso"
+,"Другое"],
+"Triumph":[
+"Другое"],
+"Volkswagen":[
+"Amarok"
+,"Arteon"
+,"Atlas"
+,"Beetle"
+,"Bora"
+,"Caddy"
+,"California"
+,"Caravelle"
+,"Corrado"
+,"Crafter"
+,"Cross Touran"
+,"Eos"
+,"Fox"
+,"Golf"
+,"Golf Plus"
+,"Golf Sportsvan"
+,"Golf SportWagen"
+,"Jetta"
+,"LT"
+,"Lupo"
+,"Multivan"
+,"Passat"
+,"Passat Alltrack"
+,"Passat CC"
+,"Phaeton"
+,"Polo"
+,"Routan"
+,"Scirocco"
+,"Sharan"
+,"T-Cross"
+,"T-Roc"
+,"Tiguan"
+,"Tiguan Allspace"
+,"Touareg"
+,"Touran"
+,"Transporter"
+,"Up"
+,"Vento"
+,"Другое"],
+"Volvo":[
+"480"
+,"850"
+,"940"
+,"960"
+,"Amazon"
+,"C30"
+,"C70"
+,"S40"
+,"S60"
+,"S60 Cross Country"
+,"S70"
+,"S80"
+,"S90"
+,"V40"
+,"V40 Cross Country"
+,"V70"
+,"V90"
+,"V90 Cross Country"
+,"XC40"
+,"XC60"
+,"XC70"
+,"XC90"
+,"Другое"],
+"Азлк/Иж":[
+"408"
+,"2125"
+,"2126"
+,"2140"
+,"2141"
+,"Другое"],
+"Ваз":[
+"2101"
+,"2102"
+,"2103"
+,"2104"
+,"2105"
+,"2106"
+,"2107"
+,"2108"
+,"2109"
+,"2110"
+,"2111"
+,"2112"
+,"2113"
+,"2114"
+,"2115"
+,"21099"
+,"2121 Niva"
+,"2123 Chevrolet"
+,"2129 Niva Long"
+,"Kalina"
+,"Priora"
+,"Ока"
+,"Другое"],
+"ГАЗ":[
+"21"
+,"2410"
+,"3102"
+,"3110"
+,"31029"
+,"Siber"
+,"Другое"],
+"ЗАЗ":[
+"968"
+,"1102 Tavria"
+,"Другое"],
+"ЛуАЗ":[
+"969"
+,"1301"
+,"1302"
+,"2403"
+,"Другое"],
+"УАЗ":[
+"469"
+,"Hunter"
+,"Patriot"
+,"Simbir"
+,"Другое"]}
+    </string>
+    <string name="next">Далее</string>
+    <string name="license">Правила и условия
+        \n
+1. Общие правила:\n
+1.1 sellavto  это мобильное приложение в котором Вы можете разместить объявления о покупке\продаже автомобиля, а также размещать объявления относящиеся к автомобильной тематике, которые не запрещены действующим законодательством.\n
+1.2Размещая объявление в мобильном приложении вы полностью соглашаетесь с данными правилами и условиями, и подтверждаете что Вы совершеннолетний. В случае если Вы не согласны  хоть с одним из ниже перечисленных пунктов, или Вы являетесь несовершеннолетним, то покиньте данное приложение.\n
+1.3 Размещая объявление в мобильном приложении только  Вы несете ответственность за достоверность информации указанной в вашем объявлении.\n
+1.4 Размещайте только реально существующие автомобили и услуги, указывайте достоверную информацию (номера телефонов, характеристики, цену, фотографии) не вводите пользователей в заблуждение.\n
+1.5 Размещайте объявление в соответствующем разделе и подразделе, при этом максимально заполнив информацию об  автомобиле, товаре или услуге.\n
+1.6 Мобильное приложение не является распространителем контента, пользователи сами размещают, редактируют и делают общедоступным пользовательский контент. Администрация не несет ответственность за сторонние не правомерные действия в отношении контактных данных и другой информации которую пользователи сделали общедоступной.\n
+1.7 За сделки, совершаемые пользователями администрация ответственность не несет. Все сделки Вы совершаете на свой страх и риск.\n
+1.8 Размещая объявление об услуге которая подлежит лицензированию, Вы должны указать номер лицензии, а также орган выдавший данную  лицензию.\n
+1.9 Автомобили с заниженной ценой для привлечения внимания к объявлению(например 1$) или тому подобное, то  данные объявления будут  переноситься в категорию с договорной ценой.\n
+1.10  Администрация приложения в праве , отправлять на электронные  адреса указанные пользователем при регистрации уведомления о редактировании или удалении объявления, добавленного пользователем, об акциях в приложении или об изменениях, или сбое работы приложения.\n
+2. Регистрация и авторизация:\n
+2.1 Пользователь при регистрации обязуется указать только достоверные данные, и несет ответственность за указанные им при регистрации данных.\n
+2.2 Регистрация происходит при помощи e-mail почты и пароля.\n
+2.3 Авторизация проходит при помощи е-mail и пароля указанного при регистрации.\n
+2.4 Запрещено передавать пользовательские данные от своего аккаунта в приложении третьим лицам.\n
+2.5 Пользователь обязуется сохранять конфиденциальность и безопасность  своих данных в приложении, и не передавать третьим лицам данные от своего аккаунта.\n
+2.6 Если у Вас появилось подозрение что ваши авторизационные  данные оказались у третьего лица, незамедлительно  напишите администрации, в противном случае администрация не несет ответственности за совершенные действия от вашего лица, и будет считать такие действия совершенными Вами.\n
+2.7 Администрация не передает третьим лицам, данные пользователя которые он ввел при регистрации кроме случаев действующего законодательства, или случаев не зависящих от администрации приложения.\n
+3.Запрещено:\n
+3.1 Запрещено  размещать объявления не относящиеся к автомобильной тематике.\n
+3.2 Запрещено размещать объявления эротического или порнографическокого характера.\n
+3.3 Запрещено размещать объявления с информацией о покупке, продаже  наркотических, психотропных средств, и их производных.\n
+3.4 Запрещено размещать объявления с информацией о любом виде вооружения, а так же о покупке продаже оружия, взрывчатых веществах или их производных.\n
+3.5 Запрещено размещать объявления с информацией которая направлена на разжигание не навести по  национальным,  расовым,  языковым, религиозным, социальным признакам, а также объявления с пропагандой жестокости и насилия.\n
+3.6 Запрещено размещать объявления с услугами сомнительного характера: финансовые пирамиды, азартные игры, сетевой маркетинг, предсказания и гадания и прочие подобные услуги.\n
+3.7 За содержащуюся в объявлении информацию ответственность несет автор объявления.\n
+3.8 Объявления нарушающие эти пункты, а также аккаунт автора данного объявления будут удалены и заблокированы без предупреждения.\n
+4.Публикация изображений:\n
+4.1 Администрация приложения не несет  ответственность  за содержимое изображений в публикуемых в объявлениях.\n
+4.2 Права на изображения в объявлениях принадлежат их владельцам.\n
+4.3 В изображении не должно содержаться: водяных знаков (watermarks), логотипов, контактной информации, номеров телефонов, e-mail, контактных  данных для Skype, whatsapp, viber и других сервисов обмена сообщениями.\n
+4.4 Запрещено размещать объявления с надписями на изображениях  для привлечения внимания таких как “ВНИМАНИЕ”, “АКЦИЯ”,”КУПЛЮ”  и тому подобных.\n
+4.5 Запрещено размещать на изображениях товарные знаки, логотипы, фирменные наименования, права на которые принадлежат третьим лицам.\n
+4.6 Люди могут быть изображены на фотографиях если они дали письменное или устное согласие на публикацию такого изображения.\n
+4.7 Изображение должно соответствовать продаваемому  объекту или услуге.\n
+5. Текст объявлений:\n
+5.1 Текст объявления не  должен вводить пользователей в заблуждение.\n
+5.2 Регистр текста как и в предложениях первая буква заглавная,  остальные строчные.\n
+5.3 Запрещено указывать ссылки на какие либо сайты, кроме ссылок на видеохостинг  youtube.com, при условии что там расположена информация об вашем авто, товаре, или услуге которые не запрещены данными правилами и законодательством.\n
+5.4 Всю ответственность за текст объявления несет автор объявления.\n
+6. Обязанности и ответственность:\n
+6.1 Пользователь обязуется беспрекословно  соблюдать все пункты данных правил.\n
+6.2 Пользователь обязуется регулярно проверять изменения в данных правилах, знакомиться с ними и соблюдать их.\n
+6.3 Пользователь обязуется обеспечить достоверность предоставляемой информации.\n
+6.4 Пользователь обязуется не нарушать работоспособность приложения.\n
+6.5 Администрация обязуется поддерживать работоспособность приложения за исключением случаев, когда это не возможно по независящим от администрации причинам.\n
+6.6 Пользователь лично несет полную ответственность за распространяемую им информацию.\n
+6.7 Администрация не несет  ответственность за несовпадение ожидаемых пользователем и реально полученных услуг.\n
+6.8 Администрация не несет никакой ответственности  за услуги, предоставляемые третьими лицами.\n
+6.9 Администрация имеет право по своему усмотрению и необходимости создавать,  изменять, отменять правила, а так же изменять и удалять информацию без уведомления пользователя об этом.\n
+Нажав кнопку регистрация Вы подтверждаете что ознакомились с данными правилами и условиями.</string>
+    <string name="phone">Номер телефона</string>
+    <string name="search">Поиск</string>
+</resources>

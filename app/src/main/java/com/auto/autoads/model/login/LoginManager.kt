@@ -1,0 +1,48 @@
+package com.auto.autoads.model.login
+
+import android.content.Intent
+import com.auto.autoads.R
+import com.auto.autoads.model.ApplicationProvider
+import com.auto.autoads.model.SpManager
+import com.auto.autoads.model.utils.convertFirebaseUserToAppUser
+import com.auto.autoads.view.main.MainActivity
+import com.google.firebase.auth.FirebaseAuth
+
+object LoginManager {
+
+    private val firebaseInstance = FirebaseAuth.getInstance()
+
+    fun registerUser(email: String, password: String, listener: IRegisterListener) {
+        firebaseInstance.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                listener.onRegisterSuccess(
+                    convertFirebaseUserToAppUser(
+                        firebaseInstance.currentUser!!,
+                        password
+                    )
+                )
+            }
+            .addOnFailureListener {
+                listener.onRegisterError(
+                    it.message ?: ApplicationProvider.instance.getString(R.string.unknown_error)
+                )
+            }
+    }
+
+    fun loginUser(email: String, password: String, listener: ILoginListener) {
+        firebaseInstance.signInWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                val user = convertFirebaseUserToAppUser(
+                    firebaseInstance.currentUser!!,
+                    password
+                )
+                listener.onLoginSuccess(user)
+                SpManager.saveUser(user)
+            }
+            .addOnFailureListener {
+                listener.onLoginError(
+                    it.message ?: ApplicationProvider.instance.getString(R.string.unknown_error)
+                )
+            }
+    }
+}

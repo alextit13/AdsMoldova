@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.auto.autoads">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".model.ApplicationProvider"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".view.main.MainActivity"
+            android:screenOrientation="portrait" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".view.start.StartActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.register.RegisterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.list.ListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.user.UserActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdCarActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdTiresActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdServiceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdPartsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdMotoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdMicrobusActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdCargoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdBusActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.ImageChooserActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.user.ListMyAdsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.search.SearchResultActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.detail.DetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.detail.ImageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.register.License"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.admin.AdminActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.admin.AdminListApproveActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".view.search.DetailSearchActivity" />
+        <activity android:name=".view.search.detail.SearchServices" />
+        <activity android:name=".view.search.detail.SearchParts" />
+        <activity android:name=".view.search.detail.SearchMoto" />
+        <activity android:name=".view.search.detail.MicrobusSearch" />
+        <activity android:name=".view.search.detail.BusSearch" />
+        <activity android:name=".view.search.detail.CargoSearch" />
+        <activity android:name=".view.search.detail.SearchCar" />
+        <activity android:name=".view.search.detail.TiresSearch" />
+    </application>
+
+</manifest>
