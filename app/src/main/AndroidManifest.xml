@@ -120,15 +120,32 @@
             android:name=".view.admin.AdminListApproveActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.DetailSearchActivity" />
-        <activity android:name=".view.search.detail.SearchServices" />
-        <activity android:name=".view.search.detail.SearchParts" />
-        <activity android:name=".view.search.detail.SearchMoto" />
-        <activity android:name=".view.search.detail.MicrobusSearch" />
-        <activity android:name=".view.search.detail.BusSearch" />
-        <activity android:name=".view.search.detail.CargoSearch" />
-        <activity android:name=".view.search.detail.SearchCar" />
-        <activity android:name=".view.search.detail.TiresSearch" />
+        <activity android:name=".view.search.DetailSearchActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.SearchServices"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.SearchParts"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.SearchMoto"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.MicrobusSearch"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.BusSearch"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.CargoSearch"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.SearchCar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.search.detail.TiresSearch"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
