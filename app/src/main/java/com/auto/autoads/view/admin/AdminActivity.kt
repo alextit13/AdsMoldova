@@ -101,4 +101,8 @@ class AdminActivity : AppCompatActivity() {
     fun listBanner(view: View) {
         startImageChooser(list)
     }
+
+    fun dataLoginAdmin(view: View) {
+        startActivity(Intent(this, LoginDataAdminActivity::class.java))
+    }
 }

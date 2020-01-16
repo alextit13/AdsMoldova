@@ -153,6 +153,7 @@
         <activity android:name=".view.internet.InternetActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.favorits.FavoritsActivity" />
+        <activity android:name=".view.admin.LoginDataAdminActivity" />
     </application>
 
 </manifest>

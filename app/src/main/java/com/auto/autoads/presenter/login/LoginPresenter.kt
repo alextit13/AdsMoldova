@@ -2,6 +2,7 @@ package com.auto.autoads.presenter.login
 
 import com.auto.autoads.R
 import com.auto.autoads.model.ApplicationProvider
+import com.auto.autoads.model.db.getPairLoginAdmin
 import com.auto.autoads.model.login.ILoginListener
 import com.auto.autoads.model.login.LoginManager
 import com.auto.autoads.model.utils.DataHandler.currentUser
@@ -30,7 +31,11 @@ class LoginPresenter : ILoginPresenter, ILoginListener {
     }
 
     override fun onClickLogin(email: String, password: String) {
-        if (email == "123" && password == "123") {
+        val dataAdmin = getPairLoginAdmin()
+        val adminLogin = dataAdmin.first
+        val adminPass = dataAdmin.second
+
+        if (email == adminLogin && password == adminPass) {
             view?.openAdminMenu()
         }
         view?.showProgress()
