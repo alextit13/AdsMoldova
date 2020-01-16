@@ -9,6 +9,7 @@ import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.presenter.list.IListPresenter
 import com.auto.autoads.presenter.list.ListPresenter
 import com.auto.autoads.view.detail.DetailActivity
+import com.auto.autoads.view.dialog.showFavoritDialog
 import kotlinx.android.synthetic.main.activity_list.*
 
 class ListActivity: AppCompatActivity(), IListActivity, IListItemClickListener {
@@ -32,7 +33,9 @@ class ListActivity: AppCompatActivity(), IListActivity, IListItemClickListener {
     }
 
     override fun onInitAdapter(list: List<Ad>) {
-        adapter = ListResultAdapter(list, this)
+        adapter = ListResultAdapter(list, this) {
+            showFavoritDialog(it, this)
+        }
         rvResult.adapter = adapter
     }
 

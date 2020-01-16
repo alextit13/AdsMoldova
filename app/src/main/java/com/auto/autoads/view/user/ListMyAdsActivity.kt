@@ -11,6 +11,7 @@ import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.ad.AdManager.listAds
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.detail.DetailActivity
+import com.auto.autoads.view.dialog.showFavoritDialog
 import com.auto.autoads.view.list.IListItemClickListener
 import com.auto.autoads.view.list.ListResultAdapter
 import kotlinx.android.synthetic.main.activity_my_ads_list.*
@@ -34,7 +35,9 @@ class ListMyAdsActivity : AppCompatActivity(), IDownloadAdsListener, IListItemCl
         rlListAds.visibility = View.VISIBLE
         flProgress.visibility = View.GONE
         if (adapter == null) {
-            adapter = ListResultAdapter(listAds, this)
+            adapter = ListResultAdapter(listAds, this) {
+                showFavoritDialog(it, this)
+            }
             rlListAds.adapter = adapter
         }
         adapter?.notifyDataSetChanged()

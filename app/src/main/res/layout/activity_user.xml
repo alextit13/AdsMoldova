@@ -55,4 +55,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:text="Избранное"
+        android:background="@drawable/back_button_red"
+        android:padding="16dp"
+        android:textColor="#fff"
+        android:onClick="favorits"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

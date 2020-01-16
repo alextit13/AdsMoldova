@@ -1,6 +1,5 @@
 package com.auto.autoads.view.list
 
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.text.format.DateFormat
 import android.view.LayoutInflater
@@ -21,7 +20,8 @@ import java.util.*
 
 open class ListResultAdapter(
     private val items: List<Ad>,
-    private var listener: IListItemClickListener
+    private var listener: IListItemClickListener,
+    private val favoritCallback: (Ad) -> Unit
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -76,6 +76,7 @@ open class ListResultAdapter(
                     }
                     price.text = "$ " + ad.price
                     date.text = getDate(ad)
+                    favorit.setOnClickListener { favoritCallback.invoke(ad) }
                 }
             }
             else -> {
@@ -100,6 +101,7 @@ open class ListResultAdapter(
         val ivApprove: CardView = itemView.ivApprove
         val price: TextView = itemView.tvPrice
         val date: TextView = itemView.date
+        val favorit: ImageView = itemView.ivAddToFavorit
     }
 
     class AdBannerViewHolder

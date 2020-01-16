@@ -71,10 +71,19 @@
             tools:text="12.09.2019 14:35"
             android:layout_margin="8dp"
             android:textColor="#CBCBCB"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/ivAddToFavorit"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ivAddToFavorit"
+            android:elevation="1000dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tvPrice"
+            android:src="@drawable/ic_favorit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

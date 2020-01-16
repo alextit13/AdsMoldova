@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.presenter.user.IUserPresenter
 import com.auto.autoads.presenter.user.UserPresenter
+import com.auto.autoads.view.favorits.FavoritsActivity
 import kotlinx.android.synthetic.main.activity_user.*
 
 class UserActivity : AppCompatActivity(), IUserActivity {
@@ -79,5 +80,9 @@ class UserActivity : AppCompatActivity(), IUserActivity {
                 "Закрыть"
             ) { p0, _ -> p0?.dismiss() }
             .create().show()
+    }
+
+    fun favorits(view: View) {
+        startActivity(Intent(this, FavoritsActivity::class.java))
     }
 }

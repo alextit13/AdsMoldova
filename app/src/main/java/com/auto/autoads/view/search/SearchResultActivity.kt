@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.auto.autoads.R
@@ -12,6 +13,7 @@ import com.auto.autoads.model.ad.AdManager.listSimpleSearchResult
 import com.auto.autoads.model.ad.ISimpleSearchListener
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.detail.DetailActivity
+import com.auto.autoads.view.dialog.showFavoritDialog
 import com.auto.autoads.view.list.IListItemClickListener
 import com.auto.autoads.view.list.ListResultAdapter
 import kotlinx.android.synthetic.main.activity_search_result.*
@@ -41,7 +43,9 @@ class SearchResultActivity : AppCompatActivity(), ISimpleSearchListener, IListIt
 
     override fun onSearchSimpleResult() {
         if (adapter == null) {
-            adapter = ListResultAdapter(listSimpleSearchResult, this)
+            adapter = ListResultAdapter(listSimpleSearchResult, this) {
+                showFavoritDialog(it, this)
+            }
             rvSearchREsult.layoutManager = LinearLayoutManager(this)
             rvSearchREsult.adapter = adapter
         }
@@ -50,7 +54,7 @@ class SearchResultActivity : AppCompatActivity(), ISimpleSearchListener, IListIt
     }
 
     override fun onError() {
-        Toast.makeText(this, "Ощибка", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemAdClick(ad: Ad) {

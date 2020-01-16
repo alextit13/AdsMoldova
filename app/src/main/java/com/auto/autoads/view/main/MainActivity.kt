@@ -14,7 +14,6 @@ import com.auto.autoads.model.SpManager.getUser
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.image.ImgeManager
 import com.auto.autoads.model.server.InternetHandler
-import com.auto.autoads.model.utils.DataHandler
 import com.auto.autoads.presenter.main.IMainPresenter
 import com.auto.autoads.presenter.main.MainPresenter
 import com.auto.autoads.view.add.AddAdActivity

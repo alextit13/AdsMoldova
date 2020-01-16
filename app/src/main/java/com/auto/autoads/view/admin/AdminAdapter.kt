@@ -9,7 +9,9 @@ class AdminAdapter(
     val list: MutableList<Ad>,
     callback: IListItemClickListener,
     val longCallback: ILongClickListener
-) : ListResultAdapter(list, callback) {
+) : ListResultAdapter(list, callback, {
+    // todo long click
+}) {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         holder.itemView.setOnLongClickListener {

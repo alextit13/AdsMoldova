@@ -1120,6 +1120,8 @@
 Нажав кнопку регистрация Вы подтверждаете что ознакомились с данными правилами и условиями.</string>
     <string name="phone">Номер телефона</string>
     <string name="search">Поиск</string>
-    <string name="lbl_close">Close</string>
-    <string name="reload">Reload</string>
+    <string name="lbl_close">Закрыть</string>
+    <string name="reload">Перезагрузить</string>
+    <string name="add_to_favorit">Избранное</string>
+    <string name="realy_add_to_favorit">Вы действительно хотите добавить объявление в избранное?</string>
 </resources>
