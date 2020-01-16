@@ -226,52 +226,6 @@ object AdManager {
             .show()
     }
 
-    fun searchDetail() {
-        listSimpleSearchResult.clear()
-        FirebaseDatabase.getInstance().getReference(ADS)
-            .addChildEventListener(object : ChildEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-
-                }
-
-                override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-
-                }
-
-                override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-
-                }
-
-                override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                    try {
-                        val ad = p0.getValue(Ad::class.java)
-                        if (ad?.category == DetailSearchActivity.kategory
-                            && ad?.marka == DetailSearchActivity.marka
-                            && ad?.model == DetailSearchActivity.model
-                            && ad?.year!! >= yearFrom?.toInt()!!
-                            && ad.year!! <= yearTo?.toInt()!!
-                            && ad.typeFuel == DetailSearchActivity.fuel
-                            && ad.engineValue!! >= DetailSearchActivity.valueFrom?.toInt()!!
-                            && ad.engineValue!! <= DetailSearchActivity.valueTo?.toInt()!!
-                            && ad.price!! <= DetailSearchActivity.priceFrom?.toInt()!!
-                            && ad.price!! <= DetailSearchActivity.priceTo?.toInt()!!
-                            && ad.transmission!! == DetailSearchActivity.transmission
-                            && ad.distance!! >= DetailSearchActivity.distanceFrom?.toInt()!!
-                            && ad.distance!! <= DetailSearchActivity.distanceTo?.toInt()!!
-                        ) {
-                            listSimpleSearchResult.add(ad)
-                        }
-                    } catch (e: Exception) {
-                        println("error")
-                    }
-                }
-
-                override fun onChildRemoved(p0: DataSnapshot) {
-
-                }
-            })
-    }
-
     fun complexSearch(searchString: String, listener: ISimpleSearchListener) {
         listSimpleSearchResult.clear()
         val listTags = searchString.split("|").toMutableList()
