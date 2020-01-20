@@ -32,7 +32,7 @@ class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, IL
 
     override fun allAds() {
         if (adapter == null) {
-            adapter = AdminAdapter(listAdminAds, this, this)
+            adapter = AdminAdapter(listAdminAds.reversed().toMutableList(), this, this)
             rvApproveAds.adapter = adapter
         } else {
             adapter?.notifyDataSetChanged()

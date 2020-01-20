@@ -9,14 +9,6 @@ object DataHandler {
     var listCheckImages: MutableList<String> = mutableListOf()
     var adForSend: Ad? = null
 
-    enum class TypeAd(val type: String) {
-        Auto("Авто"),
-        Moto("Мото"),
-        Services("Услуги"),
-        Tyres("Шины"),
-        Parts("Запчасти")
-    }
-
     fun getCarsMap(): Map<String, List<String>> {
         val s = String(ApplicationProvider.instance.assets.open("cars.txt").readBytes())
         val typeMap = object : TypeToken<Map<String, List<String>>>() {}.type

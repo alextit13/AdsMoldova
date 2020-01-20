@@ -201,34 +201,6 @@ object DatabaseEntry {
         add("Битый авто")
     }
 
-    fun getSafety() = mutableListOf<String>().apply {
-        add("")
-        add("Подушки безопасности")
-        add("Антиблокировочная система(ABS)")
-        add("Противобуксовочная система")
-        add("Система стабилизации")
-        add("Датчик парковки")
-        add("Датчик дождя")
-        add("Датчик света")
-        add("Сигнализация")
-        add("Омыватель фар")
-    }
-
-    fun getComplectation() = mutableListOf<String>().apply {
-        add("")
-        add("Аудиосистема")
-        add("Велюровый салон")
-        add("Кожаный салон")
-        add("Обивка салона ткань")
-        add("Бортовой компьютер")
-        add("Кондиционер")
-        add("Климат контроль")
-        add("Круиз контроль")
-        add("Подогрев сидений")
-        add("Подогрев зеркал")
-        add("Электростеклоподъемники")
-    }
-
     fun getLocation() = mutableListOf<String>().apply {
         add("")
         add("Кишинев")
@@ -488,6 +460,7 @@ object DatabaseEntry {
         add("Автразборка")
         add("Автомойки")
         add("Грузоперевозки")
+        add("Диски")
         add("Пассажироперевозки")
         add("Пригон авто")
         add("Установка газового оборудования")
@@ -504,21 +477,6 @@ object DatabaseEntry {
         add("Продам")
     }
 
-    fun getSiasons() = mutableListOf<String>().apply {
-        add("")
-        add("Укажите")
-        add("Летние")
-        add("Зимние")
-        add("Зимние с шипами")
-        add("Всезезонные")
-    }
-
-    fun getTiresConsist() = mutableListOf<String>().apply {
-        add("")
-        add("Новые")
-        add("Б/У")
-    }
-
     fun getForCarTypes() = mutableListOf<String>().apply {
         add("")
         add("Легковых")
@@ -528,23 +486,5 @@ object DatabaseEntry {
         add("Велотехники")
         add("Спецтехники")
         add("Другое")
-    }
-
-    fun getType() = mutableListOf<String>().apply {
-        add("")
-        add("Легковые авто")
-        add("Грузовые авто")
-        add("Автобусы")
-        add("Микроавтобусы")
-        add("Мотоциклы и мототехника")
-        add("Запчасти")
-        add("Шины")
-        add("Авто услуги")
-    }
-
-    fun getTypeParts() = mutableListOf<String>().apply {
-        add("")
-        add("Запчасть")
-        add("Авторазборка")
     }
 }

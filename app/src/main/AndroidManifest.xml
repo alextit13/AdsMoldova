@@ -22,7 +22,7 @@
 
         <activity
             android:name=".view.main.MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -123,37 +123,70 @@
             android:name=".view.admin.AdminListApproveActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.DetailSearchActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.DetailSearchActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.SearchServices"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.SearchServices"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.SearchParts"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.SearchParts"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.SearchMoto"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.SearchMoto"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.MicrobusSearch"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.MicrobusSearch"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.BusSearch"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.BusSearch"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.CargoSearch"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.CargoSearch"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.SearchCar"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.SearchCar"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.search.detail.TiresSearch"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.search.detail.TiresSearch"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".view.internet.InternetActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.favorits.FavoritsActivity" />
-        <activity android:name=".view.admin.LoginDataAdminActivity" />
+        <activity
+            android:name=".view.internet.InternetActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.favorits.FavoritsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.admin.LoginDataAdminActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdDisksActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.search.detail.DisksSearch"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.add.AddAdSomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.search.detail.SomeSearch"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

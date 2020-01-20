@@ -89,4 +89,22 @@ class AddAdActivity : AppCompatActivity() {
             )
         )
     }
+
+    fun disks(view: View) {
+        startActivity(
+            Intent(
+                this,
+                if (target == 1) AddAdDisksActivity::class.java else DisksSearch::class.java
+            )
+        )
+    }
+
+    fun some(view: View) {
+        startActivity(
+            Intent(
+                this,
+                if (target == 1) AddAdSomeActivity::class.java else SomeSearch::class.java
+            )
+        )
+    }
 }

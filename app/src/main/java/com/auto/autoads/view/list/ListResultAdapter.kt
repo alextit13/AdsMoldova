@@ -81,7 +81,10 @@ open class ListResultAdapter(
             }
             else -> {
                 (holder as AdBannerViewHolder).apply {
-                    Picasso.get().load(ImgeManager.bannerInListImageUrl).into(baner)
+                    val path = ImgeManager.bannerInListImageUrl
+                    if (path != "") {
+                        Picasso.get().load(path).into(baner)
+                    }
                 }
             }
         }
