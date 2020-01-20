@@ -1,6 +1,5 @@
 package com.auto.autoads.presenter.login
 
-import com.auto.autoads.model.login.IRegisterListener
 import com.auto.autoads.view.login.ILoginActivity
 
 interface ILoginPresenter {
