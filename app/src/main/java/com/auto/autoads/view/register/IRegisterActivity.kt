@@ -5,4 +5,7 @@ interface IRegisterActivity {
     fun dismissProgress(error: String)
     fun showProgress()
     fun openMainActivity()
+    fun showDialogCodeSend(message: String, callback: () -> Unit)
+    fun openConfirmActivity()
+    fun showToastMessage(message: String)
 }

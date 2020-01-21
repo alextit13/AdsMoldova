@@ -29,4 +29,16 @@ object SpManager {
             .putString(SP_USER_KEY, "")
             .apply()
     }
+
+    fun getUserRegCode(): String = ApplicationProvider.instance
+        .getSharedPreferences("SP_CODE_REG", Context.MODE_PRIVATE)
+        .getString("code", "") ?: ""
+
+    fun setUserRegCode(code: String) {
+        ApplicationProvider.instance
+            .getSharedPreferences("SP_CODE_REG", Context.MODE_PRIVATE)
+            .edit()
+            .putString("code", code)
+            .apply()
+    }
 }

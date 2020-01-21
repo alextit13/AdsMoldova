@@ -1,8 +1,10 @@
 package com.auto.autoads.view.register
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.presenter.register.IRegisterPresenter
@@ -36,6 +38,28 @@ class RegisterActivity : AppCompatActivity(), IRegisterActivity {
         }
     }
 
+    override fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun openConfirmActivity() {
+        startActivity(Intent(this, ConfirmCodeActivity::class.java))
+    }
+
+    override fun showDialogCodeSend(
+        message: String,
+        callback: () -> Unit
+    ) {
+        AlertDialog.Builder(this)
+            .setTitle("Подтверждение")
+            .setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton("Ок") { d, _ ->
+                callback.invoke()
+                d.dismiss()
+            }.create().show()
+    }
+
     override fun showProgress() {
         progressRegister.visibility = View.VISIBLE
         rlContainerRegister.visibility = View.GONE
@@ -48,14 +72,11 @@ class RegisterActivity : AppCompatActivity(), IRegisterActivity {
     }
 
     override fun openMainActivity() {
-        println("test_log: start")
         Toast.makeText(
             this, "Успешно зарегистрированы! Войдите в свой профиль",
             Toast.LENGTH_LONG
         ).show()
-        //startActivity(Intent(this, MainActivity::class.java))
         finish()
-        println("test_log: end")
     }
 
     override fun onStop() {

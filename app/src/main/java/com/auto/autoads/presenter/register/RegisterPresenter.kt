@@ -2,6 +2,8 @@ package com.auto.autoads.presenter.register
 
 import com.auto.autoads.R
 import com.auto.autoads.model.ApplicationProvider
+import com.auto.autoads.model.SpManager
+import com.auto.autoads.model.login.EmailSender
 import com.auto.autoads.model.login.IRegisterListener
 import com.auto.autoads.model.login.LoginManager
 import com.auto.autoads.model.utils.User
@@ -30,8 +32,37 @@ class RegisterPresenter : IRegisterPresenter, IRegisterListener {
         }
     }
 
+    private fun sendCodeToEmail(email: String) {
+        val code = getRandomCode()
+        SpManager.setUserRegCode(code)
+        sendCode(code, email, {
+            view?.showDialogCodeSend("Код был отправлен на указанный Вами Email.") {
+                view?.openConfirmActivity()
+            }
+        }, {
+            view?.showToastMessage("Ошибка при отправке кода. Попробуйте позже")
+        })
+    }
+
+    private fun getRandomCode(): String = (9_999..99_999_999).random().toString()
+
+    private fun sendCode(
+        code: String,
+        email: String,
+        callback: (String) -> Unit,
+        error: (String) -> Unit
+    ) {
+        EmailSender.sendEmailCode(
+            code, email, {
+                callback.invoke(it)
+            }, {
+                error.invoke(it)
+            }
+        )
+    }
+
     override fun onRegisterSuccess(user: User) {
-        view?.openMainActivity()
+        sendCodeToEmail(user.email)
     }
 
     override fun onRegisterError(error: String) {

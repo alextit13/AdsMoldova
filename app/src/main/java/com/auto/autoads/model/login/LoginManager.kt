@@ -1,11 +1,9 @@
 package com.auto.autoads.model.login
 
-import android.content.Intent
 import com.auto.autoads.R
 import com.auto.autoads.model.ApplicationProvider
 import com.auto.autoads.model.SpManager
 import com.auto.autoads.model.utils.convertFirebaseUserToAppUser
-import com.auto.autoads.view.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 object LoginManager {

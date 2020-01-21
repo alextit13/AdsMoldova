@@ -6,4 +6,5 @@ interface ILoginActivity {
     fun onLoginSuccess()
     fun showProgress()
     fun openAdminMenu()
+    fun openConfirmCodeActivity()
 }

@@ -2,6 +2,7 @@ package com.auto.autoads.presenter.login
 
 import com.auto.autoads.R
 import com.auto.autoads.model.ApplicationProvider
+import com.auto.autoads.model.SpManager
 import com.auto.autoads.model.db.getPairLoginAdmin
 import com.auto.autoads.model.login.ILoginListener
 import com.auto.autoads.model.login.LoginManager
@@ -19,6 +20,7 @@ class LoginPresenter : ILoginPresenter, ILoginListener {
         view.initListeners()
 
         checkUserInDataHolder()
+        checkUserRegCode()
     }
 
     private fun checkUserInDataHolder() {
@@ -28,6 +30,13 @@ class LoginPresenter : ILoginPresenter, ILoginListener {
             currentUser?.email ?: "",
             currentUser?.password ?: ""
         )
+    }
+
+    override fun checkUserRegCode() {
+        val code = SpManager.getUserRegCode()
+        if (code != "") {
+            view?.openConfirmCodeActivity()
+        }
     }
 
     override fun onClickLogin(email: String, password: String) {

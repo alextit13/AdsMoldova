@@ -10,8 +10,8 @@ import com.auto.autoads.presenter.login.ILoginPresenter
 import com.auto.autoads.presenter.login.LoginPresenter
 import com.auto.autoads.view.admin.AdminActivity
 import com.auto.autoads.view.main.MainActivity
+import com.auto.autoads.view.register.ConfirmCodeActivity
 import com.auto.autoads.view.register.License
-import com.auto.autoads.view.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), ILoginActivity {
@@ -28,6 +28,10 @@ class LoginActivity : AppCompatActivity(), ILoginActivity {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+    }
+
+    override fun openConfirmCodeActivity() {
+        startActivity(Intent(this, ConfirmCodeActivity::class.java))
     }
 
     override fun initListeners() {
