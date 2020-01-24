@@ -9,6 +9,7 @@ import com.auto.autoads.model.login.LoginManager
 import com.auto.autoads.model.utils.DataHandler.currentUser
 import com.auto.autoads.model.utils.User
 import com.auto.autoads.view.login.ILoginActivity
+import java.util.*
 
 class LoginPresenter : ILoginPresenter, ILoginListener {
 
@@ -37,6 +38,18 @@ class LoginPresenter : ILoginPresenter, ILoginListener {
         if (code != "") {
             view?.openConfirmCodeActivity()
         }
+    }
+
+    override fun onClickResetPass(email: String) {
+        if (email == "") {
+            view?.showToastMessage("Вы не ввели Email")
+            return
+        }
+        LoginManager.changeUserPass(email, {
+            view?.showToastMessage(it)
+        }, {
+            view?.showToastMessage(it)
+        })
     }
 
     override fun onClickLogin(email: String, password: String) {
@@ -69,5 +82,9 @@ class LoginPresenter : ILoginPresenter, ILoginListener {
 
     override fun onViewDetach() {
         view = null
+    }
+
+    companion object {
+        private val ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnm"
     }
 }

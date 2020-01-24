@@ -3,7 +3,10 @@ package com.auto.autoads.view.login
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.presenter.login.ILoginPresenter
@@ -71,5 +74,31 @@ class LoginActivity : AppCompatActivity(), ILoginActivity {
 
     fun registration(view: View) {
         startActivity(Intent(this, License::class.java))
+    }
+
+    fun recreatePass(v: View) {
+        val input = EditText(this)
+
+        val lp = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT)
+
+        input.layoutParams = lp
+
+        AlertDialog.Builder(this)
+            .setView(input)
+            .setTitle("Пароль")
+            .setMessage("Новый пароль будет отправлен на указаную Вами почту")
+            .setPositiveButton("Сбросить") { d, _ ->
+                presenter?.onClickResetPass(input.text.toString())
+                d.dismiss()
+            }
+            .setNegativeButton("Отмена") { d, _ ->
+                d.dismiss()
+            }.create().show()
+    }
+
+    override fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }

@@ -7,4 +7,5 @@ interface ILoginActivity {
     fun showProgress()
     fun openAdminMenu()
     fun openConfirmCodeActivity()
+    fun showToastMessage(message: String)
 }

@@ -1,10 +1,11 @@
 package com.auto.autoads.presenter.user
 
 import com.auto.autoads.model.SpManager
+import com.auto.autoads.model.login.LoginManager
 import com.auto.autoads.model.utils.DataHandler
 import com.auto.autoads.view.user.IUserActivity
 
-class UserPresenter: IUserPresenter {
+class UserPresenter : IUserPresenter {
 
     private var view: IUserActivity? = null
 

@@ -7,4 +7,5 @@ interface ILoginPresenter {
     fun onViewDetach()
     fun onClickLogin(email: String, password: String)
     fun checkUserRegCode()
+    fun onClickResetPass(email: String)
 }

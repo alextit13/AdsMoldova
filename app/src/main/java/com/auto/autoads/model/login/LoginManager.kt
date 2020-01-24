@@ -43,4 +43,18 @@ object LoginManager {
                 )
             }
     }
+
+    fun changeUserPass(
+        email: String,
+        callback: (String) -> Unit,
+        error: (String) -> Unit
+    ) {
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                callback.invoke("Пароль был успешно сброшен. Проверьте почту!")
+            }
+            .addOnFailureListener {
+                error.invoke(it.toString())
+            }
+    }
 }
