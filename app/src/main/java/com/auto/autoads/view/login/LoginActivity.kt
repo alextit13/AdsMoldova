@@ -24,13 +24,15 @@ class LoginActivity : AppCompatActivity(), ILoginActivity {
     override fun onResume() {
         super.onResume()
 
-        presenter = LoginPresenter()
-        presenter?.onViewAttach(this)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        presenter = LoginPresenter()
+        presenter?.onViewAttach(this)
     }
 
     override fun openConfirmCodeActivity() {

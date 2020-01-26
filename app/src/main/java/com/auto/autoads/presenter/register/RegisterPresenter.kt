@@ -23,7 +23,11 @@ class RegisterPresenter : IRegisterPresenter, IRegisterListener {
         view?.showProgress()
         if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
             if (password == confirmPassword) {
-                LoginManager.registerUser(email, password, this)
+                if (password.length > 6) {
+                    LoginManager.registerUser(email, password, this)
+                } else {
+                    onRegisterError("Пароль должен содержать более 6 символов")
+                }
             } else {
                 onRegisterError(ApplicationProvider.instance.getString(R.string.password_not_equals))
             }

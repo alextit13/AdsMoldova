@@ -156,7 +156,7 @@
 
                 <EditText
                     android:id="@+id/etDistanceFrom"
-                    android:hint="Пробег от"
+                    android:hint="Пробег от, км"
                     android:inputType="number"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
@@ -164,7 +164,7 @@
 
                 <EditText
                     android:id="@+id/etDistanceTo"
-                    android:hint="Пробег до"
+                    android:hint="Пробег до, км"
                     android:inputType="number"
                     android:layout_weight="1"
                     android:layout_width="match_parent"

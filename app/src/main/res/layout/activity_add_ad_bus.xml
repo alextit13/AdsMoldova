@@ -91,7 +91,7 @@
 
             <EditText
                 android:id="@+id/etDistance"
-                android:hint="Пробег"
+                android:hint="Пробег, км"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

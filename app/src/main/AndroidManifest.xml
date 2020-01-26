@@ -186,7 +186,8 @@
         <activity
             android:name=".view.search.detail.SomeSearch"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.register.ConfirmCodeActivity" />
+        <activity android:name=".view.register.ConfirmCodeActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

@@ -13,12 +13,22 @@ object LoginManager {
     fun registerUser(email: String, password: String, listener: IRegisterListener) {
         firebaseInstance.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                listener.onRegisterSuccess(
-                    convertFirebaseUserToAppUser(
-                        firebaseInstance.currentUser!!,
-                        password
+                try {
+                    it.result?.user?.let { firebaseUser ->
+                        convertFirebaseUserToAppUser(
+                            firebaseUser,
+                            password
+                        )
+                    }?.let { user ->
+                        listener.onRegisterSuccess(
+                            user
+                        )
+                    }
+                } catch (e: Exception) {
+                    listener.onRegisterError(
+                        e.message ?: ApplicationProvider.instance.getString(R.string.unknown_error)
                     )
-                )
+                }
             }
             .addOnFailureListener {
                 listener.onRegisterError(

@@ -61,7 +61,7 @@ class DetailActivity : AppCompatActivity() {
         transmission.text = "Трансмиссия: " + ad?.transmission
 
         if (ad?.distance == 0) distance.visibility = View.GONE
-        distance.text = "Пробег: " + ad?.distance?.toString()
+        distance.text = "Пробег, км: " + ad?.distance?.toString()
 
         if (ad?.body == "") body.visibility = View.GONE
         body.text = "Тип кузова: " + ad?.body

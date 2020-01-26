@@ -20,9 +20,7 @@ class ConfirmCodeActivity : AppCompatActivity() {
             val code = etCheckCode.text.toString()
             codeWasEnter(code)
         }
-        btnCancel.setOnClickListener { startActivity(
-            Intent(this, MainActivity::class.java)
-        ) }
+        btnCancel.setOnClickListener { onBackPressed() }
     }
 
     private fun codeWasEnter(code: String) {
