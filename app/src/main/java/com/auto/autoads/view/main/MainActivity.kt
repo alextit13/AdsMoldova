@@ -54,9 +54,9 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
         btnAddAd.setOnClickListener { presenter?.onClickAddAd() }
         etSearch.setOnEditorActionListener { _, i, _ ->
             if (i == EditorInfo.IME_ACTION_SEARCH) {
-                SearchResultActivity.s = etSearch.text.toString()
                 val intent = Intent(this, SearchResultActivity::class.java)
                 intent.putExtra("simpleOrComplex", 1) // simple = 1, complex =2
+                intent.putExtra("enterQuery", etSearch.text.toString()) // simple = 1, complex =2
                 startActivity(intent)
             }
             true

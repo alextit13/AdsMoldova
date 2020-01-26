@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.auto.autoads.R
@@ -20,9 +19,6 @@ import com.auto.autoads.view.list.ListResultAdapter
 import kotlinx.android.synthetic.main.activity_search_result.*
 
 class SearchResultActivity : AppCompatActivity(), ISimpleSearchListener, IListItemClickListener {
-    companion object {
-        var s: String? = null
-    }
 
     private var adapter: ListResultAdapter? = null
 
@@ -34,7 +30,10 @@ class SearchResultActivity : AppCompatActivity(), ISimpleSearchListener, IListIt
 
         when (intent.getIntExtra("simpleOrComplex", 1)) {
             1 -> {
-                AdManager.getSimpleSearchAds(s ?: "", this)
+                AdManager.getSimpleSearchAds(
+                    intent.getStringExtra("enterQuery")
+                    , this
+                )
             }
             2 -> {
                 onSearchSimpleResult()
@@ -43,13 +42,11 @@ class SearchResultActivity : AppCompatActivity(), ISimpleSearchListener, IListIt
     }
 
     override fun onSearchSimpleResult() {
-        if (adapter == null) {
-            adapter = ListResultAdapter(listSimpleSearchResult.compareByDate(), this) {
-                showFavoritDialog(it, this)
-            }
-            rvSearchREsult.layoutManager = LinearLayoutManager(this)
-            rvSearchREsult.adapter = adapter
+        adapter = ListResultAdapter(listSimpleSearchResult.compareByDate(), this) {
+            showFavoritDialog(it, this)
         }
+        rvSearchREsult.layoutManager = LinearLayoutManager(this)
+        rvSearchREsult.adapter = adapter
         adapter?.notifyDataSetChanged()
         flProgress.visibility = View.GONE
     }

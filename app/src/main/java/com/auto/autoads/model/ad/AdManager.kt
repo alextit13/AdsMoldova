@@ -8,9 +8,6 @@ import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.model.utils.DataHandler
 import com.auto.autoads.view.admin.IAdsAdminResult
 import com.auto.autoads.view.main.IListFavorits
-import com.auto.autoads.view.search.DetailSearchActivity
-import com.auto.autoads.view.search.DetailSearchActivity.Companion.yearFrom
-import com.auto.autoads.view.search.DetailSearchActivity.Companion.yearTo
 import com.auto.autoads.view.user.IDownloadAdsListener
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
@@ -128,8 +125,10 @@ object AdManager {
             })
     }
 
+    var timingListResult = mutableListOf<Ad>()
+
     fun getSimpleSearchAds(text: String, listener: ISimpleSearchListener) {
-        if (listSimpleSearchResult.isNotEmpty()) listSimpleSearchResult.clear()
+        listSimpleSearchResult.clear()
         FirebaseDatabase.getInstance().getReference(ADS)
             .addChildEventListener(object : ChildEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -147,9 +146,15 @@ object AdManager {
                 override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                     try {
                         val ad = p0.getValue(Ad::class.java)
-                        if (ad?.toString()?.contains(text, true) == true && ad.isApprove) {
-                            ad.let { listSimpleSearchResult.add(it) }
+                        ad.let { it?.let { it1 -> timingListResult.add(it1) } }
+                        if (p0.childrenCount == timingListResult.size.toLong()) {
+                            for (tAd in timingListResult) {
+                                if (tAd.toString().contains(text, true) && tAd.isApprove) {
+                                    listSimpleSearchResult.add(tAd)
+                                }
+                            }
                             listener.onSearchSimpleResult()
+                            timingListResult.clear()
                         }
                     } catch (e: Exception) {
                         listener.onError()

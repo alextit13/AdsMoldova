@@ -44,8 +44,9 @@ class DetailSearchActivity : AppCompatActivity() {
         distanceTo = etDistanceTo.text.toString()
         body = spinnerTypeBody.selectedItem?.toString()
 
-        SearchResultActivity.s = "category"
-        startActivity(Intent(this, SearchResultActivity::class.java))
+        val intentSearch = Intent(this, SearchResultActivity::class.java)
+        intentSearch.putExtra("enterQuery", "category") // simple = 1, complex =2
+        startActivity(intentSearch)
     }
 
     companion object {
