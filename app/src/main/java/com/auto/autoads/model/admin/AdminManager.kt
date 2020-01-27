@@ -3,11 +3,13 @@ package com.auto.autoads.model.admin
 import android.net.Uri
 import android.widget.Toast
 import com.auto.autoads.model.ApplicationProvider
+import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.ad.AdManager.ADS
 import com.auto.autoads.model.image.ImgeManager.bottom
 import com.auto.autoads.model.image.ImgeManager.list
 import com.auto.autoads.model.image.ImgeManager.top
 import com.auto.autoads.model.utils.Ad
+import com.auto.autoads.view.admin.IAdsAdminResult
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.FirebaseDatabase
@@ -16,10 +18,13 @@ import com.google.firebase.storage.UploadTask
 import java.io.File
 
 object AdminManager {
-    fun onApproveAd(ad: Ad) {
+    fun onApproveAd(ad: Ad, callback: IAdsAdminResult) {
         ad.isApprove = true
         FirebaseDatabase.getInstance().getReference(ADS).child(ad.id?.toString() ?: return)
             .setValue(ad)
+            .addOnSuccessListener {
+                AdManager.getAllAds(callback)
+            }
     }
 
     fun uploadImageForTopBanner(path: String) {
@@ -65,9 +70,12 @@ object AdminManager {
             .setValue(ad)
     }
 
-    fun deleteAd(ad: Ad, message: () -> Unit) {
+    fun deleteAd(ad: Ad, message: () -> Unit, callback: IAdsAdminResult) {
         FirebaseDatabase.getInstance().getReference(ADS)
             .child(ad.id?.toString().toString())
-            .removeValue().addOnSuccessListener { message.invoke() }
+            .removeValue().addOnSuccessListener {
+                message.invoke()
+                AdManager.getAllAds(callback)
+            }
     }
 }

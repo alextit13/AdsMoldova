@@ -43,7 +43,7 @@ class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, IL
     override fun onLongClick(ad: Ad) {
         AlertDialog.Builder(this)
             .setPositiveButton("Одобрить объявление") { p0, _ ->
-                AdminManager.onApproveAd(ad)
+                AdminManager.onApproveAd(ad, this)
                 p0?.dismiss()
             }
             .setNegativeButton(
@@ -53,13 +53,13 @@ class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, IL
                 p0?.dismiss()
             }
             .setNeutralButton("Удалить") { a, _ ->
-                AdminManager.deleteAd(ad) {
+                AdminManager.deleteAd(ad, {
                     Toast.makeText(
                         this,
                         "Успешно удалено",
                         Toast.LENGTH_LONG
                     ).show()
-                }
+                }, this)
                 a.dismiss()
             }.show()
     }
