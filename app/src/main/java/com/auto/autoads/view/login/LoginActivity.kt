@@ -21,16 +21,18 @@ class LoginActivity : AppCompatActivity(), ILoginActivity {
 
     private var presenter: ILoginPresenter? = null
 
-    override fun onResume() {
-        super.onResume()
-
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+    }
 
+    override fun onResume() {
+        super.onResume()
+
+        initPresenter()
+    }
+
+    private fun initPresenter() {
         presenter = LoginPresenter()
         presenter?.onViewAttach(this)
     }
@@ -83,7 +85,8 @@ class LoginActivity : AppCompatActivity(), ILoginActivity {
 
         val lp = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT)
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
 
         input.layoutParams = lp
 

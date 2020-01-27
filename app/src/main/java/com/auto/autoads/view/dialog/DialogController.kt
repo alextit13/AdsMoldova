@@ -4,10 +4,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
+import com.auto.autoads.model.ApplicationProvider
+import com.auto.autoads.model.SpManager
 import com.auto.autoads.model.db.DBGate
 import com.auto.autoads.model.utils.Ad
 
 fun showFavoritDialog(ad: Ad, activity: AppCompatActivity) {
+    if (SpManager.getUser() == null) {
+        Toast.makeText(
+            ApplicationProvider.instance, "Зарегистрируйтесь или войдите в аккаунт"
+            , Toast.LENGTH_LONG
+        ).show()
+        return
+    }
     AlertDialog.Builder(activity)
         .setTitle(R.string.add_to_favorit)
         .setMessage(R.string.realy_add_to_favorit)

@@ -168,31 +168,19 @@ object AdManager {
     }
 
     fun getAllAds(callback: IAdsAdminResult) {
+        listAdminAds.clear()
         FirebaseDatabase.getInstance().getReference(ADS)
-            .addChildEventListener(object : ChildEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
-
+                    callback.allAds()
                 }
 
-                override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-
-                }
-
-                override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-
-                }
-
-                override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                    try {
-                        listAdminAds.add(p0.getValue(Ad::class.java) ?: Ad())
-                        callback.allAds()
-                    } catch (e: Exception) {
-
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (postSnapshot in snapshot.children) {
+                        val ad = postSnapshot.getValue(Ad::class.java) ?: Ad()
+                        listAdminAds.add(ad)
                     }
-                }
-
-                override fun onChildRemoved(p0: DataSnapshot) {
-
+                    callback.allAds()
                 }
             })
     }

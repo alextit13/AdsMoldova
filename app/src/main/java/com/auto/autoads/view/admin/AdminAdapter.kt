@@ -6,7 +6,7 @@ import com.auto.autoads.view.list.IListItemClickListener
 import com.auto.autoads.view.list.ListResultAdapter
 
 class AdminAdapter(
-    val list: MutableList<Ad>,
+    var list: MutableList<Ad>,
     callback: IListItemClickListener,
     val longCallback: ILongClickListener
 ) : ListResultAdapter(list, callback, {

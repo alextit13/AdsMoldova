@@ -35,6 +35,7 @@ class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, IL
             adapter = AdminAdapter(listAdminAds.reversed().toMutableList(), this, this)
             rvApproveAds.adapter = adapter
         } else {
+            adapter?.list = listAdminAds
             adapter?.notifyDataSetChanged()
         }
     }
