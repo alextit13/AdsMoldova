@@ -2,9 +2,11 @@ package com.auto.autoads.view.favorits
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
+import com.auto.autoads.model.ad.FavoritAdManager
 import com.auto.autoads.model.db.DBGate
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.presenter.favorits.FavoritsPresenter
@@ -27,6 +29,10 @@ class FavoritsActivity : AppCompatActivity() {
 
         presenter = FavoritsPresenter()
         presenter?.onViewAttach(this)
+    }
+
+    fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     fun initAdapter(items: MutableList<Ad>) {
@@ -59,7 +65,12 @@ class FavoritsActivity : AppCompatActivity() {
     }
 
     private fun deleteAd(ad: Ad) {
-        DBGate.newInstance().delete(Gson().toJson(ad))
+        // DBGate.newInstance().delete(Gson().toJson(ad))
+        FavoritAdManager.removeAdFromFavorit(ad.id ?: 0L, {
+            showToastMessage(it)
+        }, {
+            showToastMessage(it)
+        })
 
         adapter = null
         presenter?.refreshAdapter()

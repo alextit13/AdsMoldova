@@ -125,44 +125,22 @@ object AdManager {
             })
     }
 
-    var timingListResult = mutableListOf<Ad>()
-
     fun getSimpleSearchAds(text: String, listener: ISimpleSearchListener) {
         listSimpleSearchResult.clear()
         FirebaseDatabase.getInstance().getReference(ADS)
-            .addChildEventListener(object : ChildEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
-
+                    listener.onError()
                 }
 
-                override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-
-                }
-
-                override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-
-                }
-
-                override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                    try {
-                        val ad = p0.getValue(Ad::class.java)
-                        ad.let { it?.let { it1 -> timingListResult.add(it1) } }
-                        if (p0.childrenCount == timingListResult.size.toLong()) {
-                            for (tAd in timingListResult) {
-                                if (tAd.toString().contains(text, true) && tAd.isApprove) {
-                                    listSimpleSearchResult.add(tAd)
-                                }
-                            }
-                            listener.onSearchSimpleResult()
-                            timingListResult.clear()
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    snapshot.children.forEach {
+                        val ad = it.getValue(Ad::class.java) ?: return
+                        if (ad.toString().contains(text, true) && ad.isApprove) {
+                            listSimpleSearchResult.add(ad)
                         }
-                    } catch (e: Exception) {
-                        listener.onError()
+                        listener.onSearchSimpleResult()
                     }
-                }
-
-                override fun onChildRemoved(p0: DataSnapshot) {
-
                 }
             })
     }

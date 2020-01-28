@@ -1,5 +1,6 @@
 package com.auto.autoads.presenter.favorits
 
+import com.auto.autoads.model.ad.FavoritAdManager
 import com.auto.autoads.model.db.DBGate
 import com.auto.autoads.view.favorits.FavoritsActivity
 
@@ -13,8 +14,13 @@ class FavoritsPresenter {
     }
 
     private fun getDataFromDb() {
-        val list = DBGate.newInstance().getAll()
-        view?.initAdapter(list)
+        FavoritAdManager.getAllFavoridAds({
+            view?.initAdapter(it)
+        }, {
+            view?.showToastMessage(it)
+        })
+        /*val list = DBGate.newInstance().getAll()
+        view?.initAdapter(list)*/
     }
 
     fun onViewDetach() {

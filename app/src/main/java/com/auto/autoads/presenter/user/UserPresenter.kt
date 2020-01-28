@@ -31,10 +31,10 @@ class UserPresenter : IUserPresenter {
     }
 
     private fun deleteAllFavorits() {
-        val allItems = DBGate.newInstance().getAll()
+        /*val allItems = DBGate.newInstance().getAll()
         for (ad in allItems) {
             DBGate.newInstance().delete(Gson().toJson(ad))
-        }
+        }*/
     }
 
     override fun onViewDetach() {

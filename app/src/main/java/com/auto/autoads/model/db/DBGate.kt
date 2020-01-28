@@ -7,7 +7,7 @@ import com.google.gson.Gson
 
 class DBGate {
 
-    fun insert(ad: Ad) {
+    /*fun insert(ad: Ad) {
         val adJson = Gson().toJson(ad)
         val cv = ContentValues()
         val dbHelper = DbHelper.newInstance(ApplicationProvider.instance)
@@ -47,7 +47,7 @@ class DBGate {
     fun delete(data: String): Boolean {
         return DbHelper.newInstance(ApplicationProvider.instance).writableDatabase
             .delete("favorit_ads", "dataJson=?", arrayOf(data)) > 0
-    }
+    }*/
 
     companion object {
         @JvmStatic

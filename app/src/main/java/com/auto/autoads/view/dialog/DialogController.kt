@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.model.ApplicationProvider
 import com.auto.autoads.model.SpManager
+import com.auto.autoads.model.ad.FavoritAdManager
 import com.auto.autoads.model.db.DBGate
 import com.auto.autoads.model.utils.Ad
 
@@ -24,7 +25,6 @@ fun showFavoritDialog(ad: Ad, activity: AppCompatActivity) {
             "Yes"
         ) { p0, _ ->
             addAdToFavorit(ad)
-            Toast.makeText(activity, "Успешно добавлено!", Toast.LENGTH_LONG).show()
             p0.dismiss()
         }
         .setNegativeButton("Cancel") { p, _ ->
@@ -34,5 +34,16 @@ fun showFavoritDialog(ad: Ad, activity: AppCompatActivity) {
 }
 
 fun addAdToFavorit(ad: Ad) {
-    DBGate.newInstance().insert(ad)
+    FavoritAdManager.addToFavorit(ad, {
+        Toast.makeText(
+            ApplicationProvider.instance, it
+            , Toast.LENGTH_LONG
+        ).show()
+    }, {
+        Toast.makeText(
+            ApplicationProvider.instance, it
+            , Toast.LENGTH_LONG
+        ).show()
+    })
+    // DBGate.newInstance().insert(ad)
 }
