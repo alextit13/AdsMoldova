@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
             true
         }
 
-        ImgeManager.getImageTopBanner(flAdBannerTop)
-        ImgeManager.getImageBottomBanner(flAdBannerBottom)
+        ImgeManager.getImageTopBanner(this, flAdBannerTop)
+        ImgeManager.getImageBottomBanner(flAdBannerBottom, this)
 
         AdManager.getFavoritAds(this)
     }

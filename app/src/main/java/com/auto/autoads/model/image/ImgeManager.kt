@@ -1,5 +1,7 @@
 package com.auto.autoads.model.image
 
+import android.app.Activity
+import android.os.Handler
 import android.widget.ImageView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -15,41 +17,89 @@ object ImgeManager {
 
     var bannerInListImageUrl = ""
 
-    fun getImageTopBanner(iv: ImageView) {
+    val imageListTopBanner: MutableList<String> = mutableListOf()
+    val imageListBottomBanner: MutableList<String> = mutableListOf()
+    private var imagesTopWasLoaded = false
+    private var imagesBottomWasLoaded = false
+
+    fun getImageTopBanner(
+        activity: Activity,
+        iv: ImageView) {
         FirebaseDatabase.getInstance().getReference(top)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
 
                 }
 
-                override fun onDataChange(p0: DataSnapshot) {
-                    Picasso.get().load(p0.value?.toString()).into(iv)
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (imagesTopWasLoaded) return
+
+                    imagesTopWasLoaded = true
+                    imageListTopBanner.clear()
+                    for (child in snapshot.children) {
+                        val url = child.value.toString()
+                        imageListTopBanner.add(url)
+                    }
+                    startFlipperForTopBanner(activity, iv)
                 }
             })
     }
 
-    fun getImageBottomBanner(iv: ImageView) {
+    private fun startFlipperForTopBanner(activity: Activity, iv: ImageView) {
+        Thread(Runnable {
+            for (url in imageListTopBanner) {
+                activity.runOnUiThread {
+                    Picasso.get().load(url).into(iv)
+                }
+                Thread.sleep(7000)
+            }
+            startFlipperForTopBanner(activity, iv)
+        }).start()
+    }
+
+    fun getImageBottomBanner(iv: ImageView, activity: Activity) {
         FirebaseDatabase.getInstance().getReference(bottom)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (imagesBottomWasLoaded) return
+
+                    imagesBottomWasLoaded = true
+                    imageListBottomBanner.clear()
+                    for (child in snapshot.children) {
+                        val url = child.value.toString()
+                        imageListBottomBanner.add(url)
+                    }
+                    startFlipperForBottomBanner(activity, iv)
+                }
+            })
+    }
+
+    private fun startFlipperForBottomBanner(activity: Activity, iv: ImageView) {
+        Thread(Runnable {
+            for (url in imageListBottomBanner) {
+                activity.runOnUiThread {
+                    Picasso.get().load(url).into(iv)
+                }
+                Thread.sleep(7000)
+            }
+            startFlipperForBottomBanner(activity, iv)
+        }).start()
+    }
+
+    fun getImageLinkForListBaner() {
+        FirebaseDatabase.getInstance().getReference(list)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
 
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    Picasso.get().load(p0.value?.toString()).into(iv)
+                    bannerInListImageUrl = p0.value?.toString() ?: ""
                 }
             })
-    }
-
-    fun getImageLinkForListBaner(){
-        FirebaseDatabase.getInstance().getReference(list).addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                bannerInListImageUrl = p0.value?.toString() ?: ""
-            }
-        })
     }
 }

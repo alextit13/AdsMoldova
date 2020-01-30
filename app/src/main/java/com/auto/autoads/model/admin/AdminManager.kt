@@ -12,10 +12,14 @@ import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.admin.IAdsAdminResult
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import java.io.File
+import java.util.*
 
 object AdminManager {
     fun onApproveAd(ad: Ad, callback: IAdsAdminResult) {
@@ -44,24 +48,28 @@ object AdminManager {
             FirebaseStorage.getInstance().getReferenceFromUrl("gs://autoads-c8f9c.appspot.com")
                 .child(key)
         val uploadTask = ref.putFile(Uri.fromFile(File(path)))
-        uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
-            if (!task.isSuccessful) {
-                task.exception?.let {
-                    throw it
-                }
-            }
+        uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> {
             return@Continuation ref.downloadUrl
         }).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val downloadUri = task.result?.toString()
-                FirebaseDatabase.getInstance().getReference(key).setValue(downloadUri)
-                Toast.makeText(
-                    ApplicationProvider.instance,
-                    "Загрузка завершена",
-                    Toast.LENGTH_SHORT
-                ).show()
+                uploadBannerWasCompleted(task, key)
             }
         }
+    }
+
+    private fun uploadBannerWasCompleted(
+        task: Task<Uri>,
+        key: String
+    ) {
+        val downloadUri = task.result?.toString() ?: return
+        FirebaseDatabase.getInstance().getReference(key)
+            .child(Date().time.toString())
+            .setValue(downloadUri)
+        Toast.makeText(
+            ApplicationProvider.instance,
+            "Загрузка завершена",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     fun makeAdAsForward(ad: Ad) {
