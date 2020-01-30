@@ -49,10 +49,12 @@ object ImgeManager {
         Thread(Runnable {
             for (url in imageListTopBanner) {
                 activity.runOnUiThread {
+                    println("url_test_img = $url")
                     Picasso.get().load(url).into(iv)
                 }
                 Thread.sleep(7000)
             }
+            println("url_test_img = returned")
             startFlipperForTopBanner(activity, iv)
         }).start()
     }

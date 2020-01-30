@@ -46,7 +46,7 @@ object AdminManager {
     private fun uploadImage(key: String, path: String) {
         val ref =
             FirebaseStorage.getInstance().getReferenceFromUrl("gs://autoads-c8f9c.appspot.com")
-                .child(key)
+                .child(Date().time.toString())
         val uploadTask = ref.putFile(Uri.fromFile(File(path)))
         uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> {
             return@Continuation ref.downloadUrl
