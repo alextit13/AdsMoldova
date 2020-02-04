@@ -1,8 +1,7 @@
 package com.auto.autoads.presenter.main
 
 import com.auto.autoads.R
-import com.auto.autoads.model.image.ImgeManager.getImageLinkForListBaner
-import com.auto.autoads.model.utils.DataHandler
+import com.auto.autoads.model.image.ImgeManager
 import com.auto.autoads.view.main.IMainView
 
 class MainPresenter : IMainPresenter {
@@ -13,7 +12,7 @@ class MainPresenter : IMainPresenter {
         this.view = view
 
         view.initListeners()
-        getImageLinkForListBaner()
+        ImgeManager.newInstance().getImageLinkForListBaner()
 
         checkUserInDataHolder()
     }

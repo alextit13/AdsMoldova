@@ -93,6 +93,14 @@ class ImageChooserActivity : AppCompatActivity(), IadManagerCallback {
             val files = data?.getParcelableArrayListExtra<MediaFile>(FilePickerActivity.MEDIA_FILES)
 
             if (files?.isEmpty() != false) return
+
+            val fileSize = files.first()?.size?.div(1024) ?: 0L // in kb
+            if (fileSize > 2000) {
+                Toast.makeText(this, "Изображение должно быть менее 2 МБ", Toast.LENGTH_LONG).show()
+                return
+            }
+
+
             onPickImageResult(files[0])
         }
     }

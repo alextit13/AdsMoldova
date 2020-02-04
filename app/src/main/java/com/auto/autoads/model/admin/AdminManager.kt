@@ -5,9 +5,9 @@ import android.widget.Toast
 import com.auto.autoads.model.ApplicationProvider
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.ad.AdManager.ADS
-import com.auto.autoads.model.image.ImgeManager.bottom
-import com.auto.autoads.model.image.ImgeManager.list
-import com.auto.autoads.model.image.ImgeManager.top
+import com.auto.autoads.model.image.ImgeManager.Companion.bottom
+import com.auto.autoads.model.image.ImgeManager.Companion.list
+import com.auto.autoads.model.image.ImgeManager.Companion.top
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.admin.IAdsAdminResult
 import com.google.android.gms.tasks.Continuation

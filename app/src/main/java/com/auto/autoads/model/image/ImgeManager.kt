@@ -9,11 +9,16 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
-object ImgeManager {
+class ImgeManager {
 
-    const val top = "top"
-    const val bottom = "bottom "
-    const val list = "list "
+    companion object {
+        const val top = "top"
+        const val bottom = "bottom "
+        const val list = "list "
+
+        @JvmStatic
+        fun newInstance() = ImgeManager()
+    }
 
     var bannerInListImageUrl = ""
 
@@ -50,7 +55,7 @@ object ImgeManager {
             for (url in imageListTopBanner) {
                 activity.runOnUiThread {
                     println("url_test_img = $url")
-                    Picasso.get().load(url).into(iv)
+                    Picasso.get().load(url).resize(600, 200).into(iv)
                 }
                 Thread.sleep(7000)
             }
@@ -84,7 +89,7 @@ object ImgeManager {
         Thread(Runnable {
             for (url in imageListBottomBanner) {
                 activity.runOnUiThread {
-                    Picasso.get().load(url).into(iv)
+                    Picasso.get().load(url).resize(600, 200).into(iv)
                 }
                 Thread.sleep(7000)
             }
