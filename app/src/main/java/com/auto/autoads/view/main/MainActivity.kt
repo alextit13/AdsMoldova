@@ -307,6 +307,6 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
 
     companion object {
         private const val DIALOG_TAG = "connect_dialog_tag"
-        private const val TARGET_SIZE = 150
+        private const val TARGET_SIZE = 250
     }
 }

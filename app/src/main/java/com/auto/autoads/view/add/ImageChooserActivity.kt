@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.auto.autoads.R
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.ad.AdManager.clearData
 import com.auto.autoads.model.ad.IadManagerCallback
+import com.auto.autoads.model.image.ImageResizeManager
 import com.auto.autoads.model.utils.DataHandler.adForSend
 import com.auto.autoads.model.utils.DataHandler.listCheckImages
 import com.auto.autoads.view.main.MainActivity
@@ -21,6 +23,7 @@ import com.jaiselrahman.filepicker.model.MediaFile
 import kotlinx.android.synthetic.main.activity_add_images.*
 import java.io.File
 import java.io.FileInputStream
+import java.io.IOException
 
 class ImageChooserActivity : AppCompatActivity(), IadManagerCallback {
 
@@ -93,20 +96,17 @@ class ImageChooserActivity : AppCompatActivity(), IadManagerCallback {
             val files = data?.getParcelableArrayListExtra<MediaFile>(FilePickerActivity.MEDIA_FILES)
 
             if (files?.isEmpty() != false) return
-
-            val fileSize = files.first()?.size?.div(1024) ?: 0L // in kb
-            if (fileSize > 2000) {
-                Toast.makeText(this, "Изображение должно быть менее 2 МБ", Toast.LENGTH_LONG).show()
-                return
-            }
-
-
             onPickImageResult(files[0])
         }
     }
 
     private fun onPickImageResult(get: MediaFile?) {
-        listCheckImages.add(get?.path ?: "")
+        // todo this
+
+        val file = File(get?.path)
+        val resizedFile = ImageResizeManager.saveBitmapToFile(file)
+
+        listCheckImages.add(resizedFile?.path ?: "")
         showAllImages()
     }
 
@@ -163,12 +163,12 @@ class ImageChooserActivity : AppCompatActivity(), IadManagerCallback {
         ).show()
     }
 
-    private fun showProgress(){
+    private fun showProgress() {
         flProgress.visibility = View.VISIBLE
         llContainer.visibility = View.GONE
     }
 
-    private fun dismissProgress(){
+    private fun dismissProgress() {
         flProgress.visibility = View.GONE
         llContainer.visibility = View.VISIBLE
     }
