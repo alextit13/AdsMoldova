@@ -74,7 +74,11 @@ open class ListResultAdapter(
                         listener.onLongClick(ad)
                         true
                     }
-                    price.text = "$ " + ad.price
+                    if (ad.price == 0) {
+                        price.text = "Договор"
+                    } else {
+                        price.text = "$ " + ad.price
+                    }
                     date.text = getDate(ad)
                     favorit.setOnClickListener { favoritCallback.invoke(ad) }
                 }

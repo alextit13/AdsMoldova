@@ -38,6 +38,7 @@
 
             <EditText
                 android:id="@+id/etYear"
+                android:inputType="number"
                 android:hint="Год выпуска"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -54,6 +55,7 @@
 
             <EditText
                 android:id="@+id/etEngineValue"
+                android:inputType="numberDecimal"
                 android:hint="Объем двигателя"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -61,6 +63,7 @@
             <EditText
                 android:id="@+id/etPrice"
                 android:hint="Цена, $"
+                android:inputType="numberDecimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <CheckBox
@@ -92,12 +95,14 @@
             <EditText
                 android:id="@+id/etDistance"
                 android:hint="Пробег, км"
+                android:inputType="numberDecimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etNumsPlaces"
                 android:hint="Колиество мест"
+                android:inputType="numberDecimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -145,24 +150,28 @@
 
             <EditText
                 android:id="@+id/etPhone_1"
+                android:inputType="phone"
                 android:hint="@string/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etPhone_2"
+                android:inputType="phone"
                 android:hint="@string/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etPhone_3"
+                android:inputType="phone"
                 android:hint="@string/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etPhone_4"
+                android:inputType="phone"
                 android:hint="@string/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

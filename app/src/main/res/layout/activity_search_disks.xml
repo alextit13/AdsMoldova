@@ -38,12 +38,14 @@
                     android:id="@+id/price_from"
                     android:layout_weight="1"
                     android:hint="Цена от"
+                    android:inputType="numberDecimal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
                 <EditText
                     android:id="@+id/price_to"
                     android:layout_weight="1"
+                    android:inputType="numberDecimal"
                     android:hint="Цена до"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

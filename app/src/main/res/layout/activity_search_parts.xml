@@ -46,6 +46,7 @@
                 <EditText
                     android:id="@+id/etPriceFrom"
                     android:hint="Цена от"
+                    android:inputType="numberDecimal"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -53,6 +54,7 @@
                 <EditText
                     android:id="@+id/etPriceTo"
                     android:hint="Цена до"
+                    android:inputType="numberDecimal"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

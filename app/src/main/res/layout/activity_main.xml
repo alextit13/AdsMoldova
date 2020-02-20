@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/logo_main"
+                android:src="@drawable/main_logo_app"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/cv"
                 android:layout_width="220dp"

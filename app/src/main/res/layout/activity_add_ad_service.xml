@@ -45,24 +45,28 @@
             <EditText
                 android:id="@+id/etPhone_1"
                 android:hint="@string/phone"
+                android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etPhone_2"
                 android:hint="@string/phone"
+                android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etPhone_3"
                 android:hint="@string/phone"
+                android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/etPhone_4"
                 android:hint="@string/phone"
+                android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
