@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.ad.AdManager.listAds
+import com.auto.autoads.model.image.ImgeManager
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.detail.DetailActivity
 import com.auto.autoads.view.dialog.showFavoritDialog
@@ -35,7 +36,7 @@ class ListMyAdsActivity : AppCompatActivity(), IDownloadAdsListener, IListItemCl
         rlListAds.visibility = View.VISIBLE
         flProgress.visibility = View.GONE
         if (adapter == null) {
-            adapter = ListResultAdapter(listAds, this) {
+            adapter = ListResultAdapter(listAds, ImgeManager.bannerInListImageUrl,this) {
                 showFavoritDialog(it, this)
             }
             rlListAds.adapter = adapter

@@ -20,6 +20,7 @@ import java.util.*
 
 open class ListResultAdapter(
     private val items: List<Ad>,
+    private val listUrlsBanner: MutableList<String>,
     private var listener: IListItemClickListener,
     private val favoritCallback: (Ad) -> Unit
 ) :
@@ -85,10 +86,13 @@ open class ListResultAdapter(
             }
             else -> {
                 (holder as AdBannerViewHolder).apply {
-                    val path = ImgeManager.newInstance().bannerInListImageUrl
-                    if (path != "") {
-                        Picasso.get().load(path).into(baner)
-                    }
+                    val listUrls = ImgeManager.bannerInListImageUrl
+                    if (listUrls.isEmpty()) return
+
+                    val randomUrl = listUrls.get(Random().nextInt(listUrls.size))
+                    println("randomUrl = $randomUrl")
+
+                    Picasso.get().load(randomUrl).into(baner)
                 }
             }
         }

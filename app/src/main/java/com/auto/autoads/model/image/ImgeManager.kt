@@ -15,12 +15,12 @@ class ImgeManager {
         const val top = "top"
         const val bottom = "bottom "
         const val list = "list "
-
+        var bannerInListImageUrl: MutableList<String> = mutableListOf()
         @JvmStatic
         fun newInstance() = ImgeManager()
     }
 
-    var bannerInListImageUrl = ""
+
 
     val imageListTopBanner: MutableList<String> = mutableListOf()
     val imageListBottomBanner: MutableList<String> = mutableListOf()
@@ -101,11 +101,11 @@ class ImgeManager {
         FirebaseDatabase.getInstance().getReference(list)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
-
+                    println("fdls;k")
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    bannerInListImageUrl = p0.value?.toString() ?: ""
+                    bannerInListImageUrl = (p0.value as HashMap<String, String>).values.toMutableList()
                 }
             })
     }
