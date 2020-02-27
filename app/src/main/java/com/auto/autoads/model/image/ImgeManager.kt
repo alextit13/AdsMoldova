@@ -1,7 +1,6 @@
 package com.auto.autoads.model.image
 
 import android.app.Activity
-import android.os.Handler
 import android.widget.ImageView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,7 +20,6 @@ class ImgeManager {
     }
 
 
-
     val imageListTopBanner: MutableList<String> = mutableListOf()
     val imageListBottomBanner: MutableList<String> = mutableListOf()
     private var imagesTopWasLoaded = false
@@ -29,7 +27,8 @@ class ImgeManager {
 
     fun getImageTopBanner(
         activity: Activity,
-        iv: ImageView) {
+        iv: ImageView
+    ) {
         FirebaseDatabase.getInstance().getReference(top)
             .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -100,12 +99,15 @@ class ImgeManager {
     fun getImageLinkForListBaner() {
         FirebaseDatabase.getInstance().getReference(list)
             .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-                    println("fdls;k")
-                }
+                override fun onCancelled(p0: DatabaseError) {}
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    bannerInListImageUrl = (p0.value as HashMap<String, String>).values.toMutableList()
+                    try {
+                        bannerInListImageUrl =
+                            (p0.value as HashMap<String, String>).values.toMutableList()
+                    } catch (e: Exception) {
+                        println("error: $e")
+                    }
                 }
             })
     }
