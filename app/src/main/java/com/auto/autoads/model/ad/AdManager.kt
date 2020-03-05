@@ -154,6 +154,7 @@ object AdManager {
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    if (listAdminAds.isNotEmpty()) listAdminAds.clear()
                     for (postSnapshot in snapshot.children) {
                         val ad = postSnapshot.getValue(Ad::class.java) ?: Ad()
                         listAdminAds.add(ad)
