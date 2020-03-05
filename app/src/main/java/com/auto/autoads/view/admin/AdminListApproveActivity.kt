@@ -31,26 +31,17 @@ class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, IL
     }
 
     override fun allAds() {
-        if (adapter == null) {
-            adapter = AdminAdapter(
-                listAdminAds.reversed().toMutableList(), {
-                    onItemAdClick(it)
-                }, {
-                    onLongClick(it)
-                })
-            rvApproveAds.adapter = adapter
-        } else {
-            adapter?.list = listAdminAds
-            adapter?.notifyDataSetChanged()
-        }
+        rvApproveAds.adapter = AdminAdapter(
+            listAdminAds.reversed().toMutableList(), {
+                onItemAdClick(it)
+            }, {
+                onLongClick(it)
+            })
     }
-
-    private var isForApprove = false
 
     override fun onLongClick(ad: Ad) {
         AlertDialog.Builder(this)
             .setPositiveButton("Одобрить объявление") { p0, _ ->
-                isForApprove = true
                 AdminManager.onApproveAd(ad, this)
                 p0?.dismiss()
             }

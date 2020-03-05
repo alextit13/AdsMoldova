@@ -24,6 +24,7 @@ import java.util.*
 object AdminManager {
     fun onApproveAd(ad: Ad, callback: IAdsAdminResult) {
         ad.isApprove = true
+        AdManager.listAdminAds.clear()
         FirebaseDatabase.getInstance().getReference(ADS).child(ad.id?.toString() ?: return)
             .setValue(ad)
             .addOnSuccessListener {
