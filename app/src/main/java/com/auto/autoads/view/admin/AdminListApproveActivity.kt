@@ -7,12 +7,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.model.ad.AdManager
-import com.auto.autoads.model.ad.AdManager.listAdminAds
 import com.auto.autoads.model.admin.AdminManager
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.detail.DetailActivity
 import com.auto.autoads.view.list.IListItemClickListener
-import kotlinx.android.synthetic.main.activity_admin_list_approve.*
 
 class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, ILongClickListener,
     IAdsAdminResult {
@@ -31,18 +29,29 @@ class AdminListApproveActivity : AppCompatActivity(), IListItemClickListener, IL
     }
 
     override fun allAds() {
-        if (adapter == null) {
+        /*if (adapter == null) {
             adapter = AdminAdapter(listAdminAds.reversed().toMutableList(), this, this)
             rvApproveAds.adapter = adapter
         } else {
             adapter?.list = listAdminAds
             adapter?.notifyDataSetChanged()
+        }*/
+        if (isForApprove) {
+            Toast.makeText(
+                this,
+                "Объявление одобрено! \n Будет доступно через некоторое время",
+                Toast.LENGTH_LONG
+            ).show()
+            isForApprove = false
         }
     }
+
+    private var isForApprove = false
 
     override fun onLongClick(ad: Ad) {
         AlertDialog.Builder(this)
             .setPositiveButton("Одобрить объявление") { p0, _ ->
+                isForApprove = true
                 AdminManager.onApproveAd(ad, this)
                 p0?.dismiss()
             }

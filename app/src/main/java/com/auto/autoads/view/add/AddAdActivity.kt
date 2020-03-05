@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
+import com.auto.autoads.model.utils.DataHandler
 import com.auto.autoads.view.search.detail.*
 
 class AddAdActivity : AppCompatActivity() {
@@ -16,6 +17,7 @@ class AddAdActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_main)
 
         target = intent.getIntExtra("target", 1)
+        DataHandler.listCheckImages.clear()
     }
 
     fun car(view: View) {
