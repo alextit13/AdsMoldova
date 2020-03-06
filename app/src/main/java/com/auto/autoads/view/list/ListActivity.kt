@@ -2,10 +2,8 @@ package com.auto.autoads.view.list
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
-import com.auto.autoads.model.image.ImgeManager
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.presenter.list.IListPresenter
 import com.auto.autoads.presenter.list.ListPresenter
@@ -34,7 +32,7 @@ class ListActivity: AppCompatActivity(), IListActivity, IListItemClickListener {
     }
 
     override fun onInitAdapter(list: List<Ad>) {
-        adapter = ListResultAdapter(list, ImgeManager.bannerInListImageUrl, this) {
+        adapter = ListResultAdapter(list, this) {
             showFavoritDialog(it, this)
         }
         rvResult.adapter = adapter

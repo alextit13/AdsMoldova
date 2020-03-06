@@ -11,7 +11,6 @@ import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.ad.AdManager.listSimpleSearchResult
 import com.auto.autoads.model.ad.ISimpleSearchListener
 import com.auto.autoads.model.ad.compareByDate
-import com.auto.autoads.model.image.ImgeManager.Companion.bannerInListImageUrl
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.detail.DetailActivity
 import com.auto.autoads.view.dialog.showFavoritDialog
@@ -43,7 +42,7 @@ class SearchResultActivity : AppCompatActivity(), ISimpleSearchListener, IListIt
     }
 
     override fun onSearchSimpleResult() {
-        adapter = ListResultAdapter(listSimpleSearchResult.compareByDate(), bannerInListImageUrl, this) {
+        adapter = ListResultAdapter(listSimpleSearchResult.compareByDate(), this) {
             showFavoritDialog(it, this)
         }
         rvSearchREsult.layoutManager = LinearLayoutManager(this)
