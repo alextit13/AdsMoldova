@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity(), ILoginActivity {
         AlertDialog.Builder(this)
             .setView(input)
             .setTitle("Пароль")
-            .setMessage("Новый пароль будет отправлен на указаную Вами почту")
+            .setMessage("Введите адрес электронной почты которую Вы указали при регистрации")
             .setPositiveButton("Сбросить") { d, _ ->
                 presenter?.onClickResetPass(input.text.toString())
                 d.dismiss()
