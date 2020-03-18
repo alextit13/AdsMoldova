@@ -44,6 +44,7 @@ class RegisterPresenter : IRegisterPresenter, IRegisterListener {
                 view?.openConfirmActivity()
             }
         }, {
+            view?.closeCurrentScreen()
             view?.showToastMessage("Ошибка при отправке кода. Попробуйте позже")
         })
     }

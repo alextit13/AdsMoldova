@@ -8,4 +8,5 @@ interface IRegisterActivity {
     fun showDialogCodeSend(message: String, callback: () -> Unit)
     fun openConfirmActivity()
     fun showToastMessage(message: String)
+    fun closeCurrentScreen()
 }

@@ -42,6 +42,10 @@ class RegisterActivity : AppCompatActivity(), IRegisterActivity {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
+    override fun closeCurrentScreen() {
+        finish()
+    }
+
     override fun openConfirmActivity() {
         startActivity(Intent(this, ConfirmCodeActivity::class.java))
     }
@@ -69,6 +73,7 @@ class RegisterActivity : AppCompatActivity(), IRegisterActivity {
         if (error.isNotEmpty()) Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
         progressRegister.visibility = View.GONE
         rlContainerRegister.visibility = View.VISIBLE
+        finish()
     }
 
     override fun openMainActivity() {
