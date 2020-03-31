@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.auto.autoads.R
+import com.auto.autoads.model.SpManager
 import com.auto.autoads.model.SpManager.getUser
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.image.ImgeManager
@@ -26,6 +27,7 @@ import com.auto.autoads.presenter.main.MainPresenter
 import com.auto.autoads.view.add.AddAdActivity
 import com.auto.autoads.view.detail.DetailActivity
 import com.auto.autoads.view.login.LoginActivity
+import com.auto.autoads.view.register.ConfirmCodeActivity
 import com.auto.autoads.view.search.DetailSearchActivity
 import com.auto.autoads.view.search.SearchResultActivity
 import com.auto.autoads.view.user.UserActivity
@@ -298,6 +300,13 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
     }
 
     fun profile(view: View) {
+
+        val code = SpManager.getUserRegCode()
+        if (code != "") {
+            startActivity(Intent(this, ConfirmCodeActivity::class.java))
+            return
+        }
+
         if (getUser() == null) {
             startActivity(Intent(this, LoginActivity::class.java))
         } else {

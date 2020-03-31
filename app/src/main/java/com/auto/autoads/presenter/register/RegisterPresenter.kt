@@ -24,7 +24,7 @@ class RegisterPresenter : IRegisterPresenter, IRegisterListener {
         if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
             if (password == confirmPassword) {
                 if (password.length > 6) {
-                    LoginManager.registerUser(email, password, this)
+                    sendCodeToEmail(email, password)
                 } else {
                     onRegisterError("Пароль должен содержать более 6 символов")
                 }
@@ -36,12 +36,12 @@ class RegisterPresenter : IRegisterPresenter, IRegisterListener {
         }
     }
 
-    private fun sendCodeToEmail(email: String) {
+    private fun sendCodeToEmail(email: String, password: String) {
         val code = getRandomCode()
         SpManager.setUserRegCode(code)
         sendCode(code, email, {
             view?.showDialogCodeSend("Код был отправлен на указанный Вами Email.") {
-                view?.openConfirmActivity()
+                LoginManager.registerUser(email, password, this)
             }
         }, {
             view?.closeCurrentScreen()
@@ -67,7 +67,7 @@ class RegisterPresenter : IRegisterPresenter, IRegisterListener {
     }
 
     override fun onRegisterSuccess(user: User) {
-        sendCodeToEmail(user.email)
+        view?.openConfirmActivity()
     }
 
     override fun onRegisterError(error: String) {

@@ -25,7 +25,9 @@ object EmailSender {
                 }
 
                 override fun sendFail(err: String?) {
-                    err?.let { error.invoke(it) }
+                    err?.let {
+                        error.invoke(it)
+                    }
                 }
             }).send()
     }

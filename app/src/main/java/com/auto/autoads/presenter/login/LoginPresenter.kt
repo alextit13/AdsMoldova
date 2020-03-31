@@ -34,10 +34,10 @@ class LoginPresenter : ILoginPresenter, ILoginListener {
     }
 
     override fun checkUserRegCode() {
-        val code = SpManager.getUserRegCode()
+        /*val code = SpManager.getUserRegCode()
         if (code != "") {
             view?.openConfirmCodeActivity()
-        }
+        }*/
     }
 
     override fun onClickResetPass(email: String) {
