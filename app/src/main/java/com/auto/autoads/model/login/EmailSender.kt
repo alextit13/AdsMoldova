@@ -6,6 +6,7 @@ import com.github.tntkhang.gmailsenderlibrary.GMailSender
 import com.github.tntkhang.gmailsenderlibrary.GmailListener
 
 object EmailSender {
+    // https://myaccount.google.com/lesssecureapps
     fun sendEmailCode(
         code: String,
         email: String,
