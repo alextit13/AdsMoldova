@@ -12,10 +12,7 @@ import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.view.admin.IAdsAdminResult
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import java.io.File
@@ -80,11 +77,35 @@ object AdminManager {
     }
 
     fun deleteAd(ad: Ad, message: () -> Unit, callback: IAdsAdminResult) {
-        FirebaseDatabase.getInstance().getReference(ADS)
-            .child(ad.id?.toString().toString())
-            .removeValue().addOnSuccessListener {
-                message.invoke()
-                AdManager.getAllAds(callback)
+        if (ad.linkImages != null) {
+            if (ad.linkImages!!.isEmpty()) {
+                deleteImageFromRemoteDb(ad.linkImages ?: return) {
+                    FirebaseDatabase.getInstance().getReference(ADS)
+                        .child(ad.id?.toString().toString())
+                        .removeValue().addOnSuccessListener {
+                            message.invoke()
+                            AdManager.getAllAds(callback)
+                        }
+                }
             }
+        }
+    }
+
+    fun deleteImageFromRemoteDb(
+        links: MutableList<String>,
+        result: () -> Unit
+    ) {
+        var index = 0
+        fun delete(link: String) {
+            FirebaseStorage.getInstance().reference.child(link).delete().addOnSuccessListener {
+                index++
+                if (index == links.size) {
+                    result.invoke()
+                    return@addOnSuccessListener
+                }
+                delete(links[index])
+            }
+        }
+        delete(links[index])
     }
 }

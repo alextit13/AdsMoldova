@@ -3,7 +3,6 @@ package com.auto.autoads.view.main
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -19,7 +18,6 @@ import com.auto.autoads.model.SpManager.getUser
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.image.ImgeManager
 import com.auto.autoads.model.server.InternetHandler
-import com.auto.autoads.model.utils.Connect
 import com.auto.autoads.presenter.main.ConnectDialog
 import com.auto.autoads.presenter.main.IMainPresenter
 import com.auto.autoads.presenter.main.MainPresenter
@@ -267,57 +265,33 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
 
     fun connectAdmin(view: View) {
         var dialog: ConnectDialog? = null
-        dialog = ConnectDialog {
-            onConnectWasChoose(it)
+        dialog = ConnectDialog { title, message, name, email ->
+            onConnectWasChoose(title, message, name, email)
             dialog?.dismiss()
         }
         dialog.show(supportFragmentManager, DIALOG_TAG)
     }
 
-    private fun onConnectWasChoose(connect: Connect) {
-        when (connect.id) {
-            1 -> {
-                // viber
-                val uriViber = Uri.parse("tel:" + connect.data)
-                val viberIntent = Intent("android.intent.action.VIEW")
-                viberIntent.data = uriViber
-                startActivity(Intent.createChooser(viberIntent, "Choose"))
-            }
-            2 -> {
-                // whatsapp
-                val phoneNumberWithCountryCode = connect.data
-                val message = "Добрый день!"
-
-                startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse(
-                            String.format(
-                                "https://api.whatsapp.com/send?phone=%s&text=%s",
-                                phoneNumberWithCountryCode, message
-                            )
-                        )
-                    )
-                )
-            }
-            3 -> {
-                // email
-                val i = Intent(Intent.ACTION_SEND)
-                i.type = "message/rfc822"
-                i.putExtra(Intent.EXTRA_EMAIL, arrayOf(connect.data))
-                i.putExtra(Intent.EXTRA_SUBJECT, "Вопрос по приложению")
-                i.putExtra(Intent.EXTRA_TEXT, "")
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."))
-                } catch (ex: android.content.ActivityNotFoundException) {
-                    Toast.makeText(
-                        this,
-                        "К сожалению, не установлен ни один Email клиент",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-            }
+    private fun onConnectWasChoose(
+        title: String,
+        message: String,
+        name: String,
+        email: String
+    ) {
+        // email
+        val i = Intent(Intent.ACTION_SEND)
+        i.type = "message/rfc822"
+        i.putExtra(Intent.EXTRA_SUBJECT, title)
+        i.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+        i.putExtra(Intent.EXTRA_TEXT, message + "\n" + name)
+        try {
+            startActivity(Intent.createChooser(i, "Send mail..."))
+        } catch (ex: android.content.ActivityNotFoundException) {
+            Toast.makeText(
+                this,
+                "К сожалению, не установлен ни один Email клиент",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

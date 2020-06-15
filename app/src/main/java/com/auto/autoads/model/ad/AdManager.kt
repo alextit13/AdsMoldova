@@ -4,6 +4,7 @@ import android.net.Uri
 import android.widget.Toast
 import com.auto.autoads.model.ApplicationProvider
 import com.auto.autoads.model.SpManager
+import com.auto.autoads.model.admin.AdminManager
 import com.auto.autoads.model.utils.Ad
 import com.auto.autoads.model.utils.DataHandler
 import com.auto.autoads.view.admin.IAdsAdminResult
@@ -192,10 +193,21 @@ object AdManager {
     }
 
     fun deleteAd(ad: Ad) {
-        FirebaseDatabase.getInstance().getReference(ADS).child(ad.id?.toString().toString())
-            .removeValue()
-        Toast.makeText(ApplicationProvider.instance, "Объявление будет удалено", Toast.LENGTH_SHORT)
-            .show()
+        if (ad.linkImages != null) {
+            if (ad.linkImages!!.isNotEmpty()) {
+                AdminManager.deleteImageFromRemoteDb(ad.linkImages!!) {
+                    FirebaseDatabase.getInstance().getReference(ADS)
+                        .child(ad.id?.toString().toString())
+                        .removeValue()
+                    Toast.makeText(
+                        ApplicationProvider.instance,
+                        "Объявление будет удалено",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            }
+        }
     }
 
     fun complexSearch(searchString: String, listener: ISimpleSearchListener) {

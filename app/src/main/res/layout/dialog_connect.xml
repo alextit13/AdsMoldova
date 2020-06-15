@@ -2,12 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:minWidth="300dp"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvConnect"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <EditText
+        android:id="@+id/etTheme"
+        android:drawableStart="@drawable/ic_edit_black_24dp"
+        android:hint="Тема"
+        android:drawablePadding="12dp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etBody"
+        android:hint="Сообщение"
+        android:drawablePadding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:drawableStart="@drawable/ic_account_box_black_24dp"
+        android:hint="Ваше имя"
+        android:drawablePadding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPost"
+        android:drawableStart="@drawable/ic_local_post_office_black_24dp"
+        android:hint="Ваш e-main"
+        android:drawablePadding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_marginTop="16dp"
+        android:text="Отправить"
+        android:textColor="#fff"
+        android:background="#5DAAFF"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
