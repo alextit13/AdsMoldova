@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.auto.autoads.R
-import com.auto.autoads.model.SpManager
 import com.auto.autoads.model.SpManager.getUser
 import com.auto.autoads.model.ad.AdManager
 import com.auto.autoads.model.image.ImgeManager
@@ -27,7 +26,6 @@ import com.auto.autoads.presenter.main.MainPresenter
 import com.auto.autoads.view.add.AddAdActivity
 import com.auto.autoads.view.detail.DetailActivity
 import com.auto.autoads.view.login.LoginActivity
-import com.auto.autoads.view.register.ConfirmCodeActivity
 import com.auto.autoads.view.search.DetailSearchActivity
 import com.auto.autoads.view.search.SearchResultActivity
 import com.auto.autoads.view.user.UserActivity
@@ -140,7 +138,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_1.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_1)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_1)
 
                     }
                     1 -> {
@@ -150,7 +151,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_2.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_2)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_2)
                     }
                     2 -> {
                         rl_3.setOnClickListener {
@@ -159,7 +163,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_3.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_3)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_3)
                     }
                     3 -> {
                         rl_4.setOnClickListener {
@@ -168,7 +175,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_4.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_4)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_4)
                     }
                     4 -> {
                         rl_5.setOnClickListener {
@@ -177,7 +187,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_5.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_5)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_5)
                     }
                     5 -> {
                         rl_6.setOnClickListener {
@@ -186,7 +199,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_6.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_6)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_6)
                     }
                     6 -> {
                         rl_7.setOnClickListener {
@@ -195,7 +211,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_7.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_7)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_7)
                     }
                     7 -> {
                         rl_8.setOnClickListener {
@@ -204,7 +223,10 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
                         }
                         title_ad_8.text = ad.category
                         if (ad.linkImages?.isNotEmpty() == true)
-                            Picasso.get().load(ad.linkImages?.first()).resize(TARGET_SIZE, TARGET_SIZE).into(iv_ad_8)
+                            Picasso.get().load(ad.linkImages?.first()).resize(
+                                TARGET_SIZE,
+                                TARGET_SIZE
+                            ).into(iv_ad_8)
                     }
                 }
 
@@ -300,13 +322,6 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
     }
 
     fun profile(view: View) {
-
-        val code = SpManager.getUserRegCode()
-        if (code != "") {
-            startActivity(Intent(this, ConfirmCodeActivity::class.java))
-            return
-        }
-
         if (getUser() == null) {
             startActivity(Intent(this, LoginActivity::class.java))
         } else {

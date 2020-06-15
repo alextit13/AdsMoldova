@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.auto.autoads.R
 import com.auto.autoads.presenter.register.IRegisterPresenter
 import com.auto.autoads.presenter.register.RegisterPresenter
+import com.auto.autoads.view.main.MainActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(), IRegisterActivity {
@@ -47,7 +48,8 @@ class RegisterActivity : AppCompatActivity(), IRegisterActivity {
     }
 
     override fun openConfirmActivity() {
-        startActivity(Intent(this, ConfirmCodeActivity::class.java))
+        // регистрация прошла успешно
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun showDialogCodeSend(
