@@ -77,18 +77,24 @@ object AdminManager {
     }
 
     fun deleteAd(ad: Ad, message: () -> Unit, callback: IAdsAdminResult) {
-        if (ad.linkImages != null) {
-            if (ad.linkImages!!.isEmpty()) {
-                deleteImageFromRemoteDb(ad.linkImages ?: return) {
-                    FirebaseDatabase.getInstance().getReference(ADS)
-                        .child(ad.id?.toString().toString())
-                        .removeValue().addOnSuccessListener {
-                            message.invoke()
-                            AdManager.getAllAds(callback)
-                        }
-                }
+        if (ad.linkImages != null && ad.linkImages!!.isEmpty())
+            deleteImageFromRemoteDb(ad.linkImages ?: return) {
+                deleteRemoteAd(ad, message, callback)
             }
-        }
+        else deleteRemoteAd(ad, message, callback)
+    }
+
+    private fun deleteRemoteAd(
+        ad: Ad,
+        message: () -> Unit,
+        callback: IAdsAdminResult
+    ) {
+        FirebaseDatabase.getInstance().getReference(ADS)
+            .child(ad.id?.toString().toString())
+            .removeValue().addOnSuccessListener {
+                message.invoke()
+                AdManager.getAllAds(callback)
+            }
     }
 
     fun deleteImageFromRemoteDb(
@@ -97,14 +103,23 @@ object AdminManager {
     ) {
         var index = 0
         fun delete(link: String) {
-            FirebaseStorage.getInstance().reference.child(link).delete().addOnSuccessListener {
-                index++
-                if (index == links.size) {
-                    result.invoke()
-                    return@addOnSuccessListener
+            FirebaseStorage.getInstance().reference.child(link).delete()
+                .addOnSuccessListener {
+                    index++
+                    if (index == links.size) {
+                        result.invoke()
+                        return@addOnSuccessListener
+                    }
+                    delete(links[index])
                 }
-                delete(links[index])
-            }
+                .addOnFailureListener {
+                    index++
+                    if (index == links.size) {
+                        result.invoke()
+                        return@addOnFailureListener
+                    }
+                    delete(links[index])
+                }
         }
         delete(links[index])
     }

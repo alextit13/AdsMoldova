@@ -193,21 +193,23 @@ object AdManager {
     }
 
     fun deleteAd(ad: Ad) {
-        if (ad.linkImages != null) {
-            if (ad.linkImages!!.isNotEmpty()) {
-                AdminManager.deleteImageFromRemoteDb(ad.linkImages!!) {
-                    FirebaseDatabase.getInstance().getReference(ADS)
-                        .child(ad.id?.toString().toString())
-                        .removeValue()
-                    Toast.makeText(
-                        ApplicationProvider.instance,
-                        "Объявление будет удалено",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
+        if (ad.linkImages != null && ad.linkImages!!.isNotEmpty())
+            AdminManager.deleteImageFromRemoteDb(ad.linkImages!!) {
+                deleteRemoteAd(ad)
             }
-        }
+        else deleteRemoteAd(ad)
+    }
+
+    private fun deleteRemoteAd(ad: Ad) {
+        FirebaseDatabase.getInstance().getReference(ADS)
+            .child(ad.id?.toString().toString())
+            .removeValue()
+        Toast.makeText(
+            ApplicationProvider.instance,
+            "Объявление будет удалено",
+            Toast.LENGTH_SHORT
+        )
+            .show()
     }
 
     fun complexSearch(searchString: String, listener: ISimpleSearchListener) {
