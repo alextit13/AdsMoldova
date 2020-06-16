@@ -279,20 +279,7 @@ class MainActivity : AppCompatActivity(), IMainView, IListFavorits {
         email: String
     ) {
         // email
-        val i = Intent(Intent.ACTION_SEND)
-        i.type = "message/rfc822"
-        i.putExtra(Intent.EXTRA_SUBJECT, title)
-        i.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
-        i.putExtra(Intent.EXTRA_TEXT, message + "\n" + name)
-        try {
-            startActivity(Intent.createChooser(i, "Send mail..."))
-        } catch (ex: android.content.ActivityNotFoundException) {
-            Toast.makeText(
-                this,
-                "К сожалению, не установлен ни один Email клиент",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+        presenter?.onClickSendMessage(title, message, name, email)
     }
 
     fun profile(view: View) {

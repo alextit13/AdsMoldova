@@ -4,19 +4,25 @@
     android:layout_height="match_parent"
     android:minWidth="300dp"
     android:orientation="vertical"
+    android:background="#DADADA"
     android:padding="16dp">
 
     <EditText
         android:id="@+id/etTheme"
         android:drawableStart="@drawable/ic_edit_black_24dp"
         android:hint="Тема"
+        android:padding="8dp"
+        android:background="@drawable/back_round_corner_dialog"
         android:drawablePadding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etBody"
+        android:layout_marginTop="8dp"
         android:hint="Сообщение"
+        android:padding="8dp"
+        android:background="@drawable/back_round_corner_dialog"
         android:drawablePadding="12dp"
         android:layout_width="match_parent"
         android:layout_height="150dp"/>
@@ -25,6 +31,9 @@
         android:id="@+id/etName"
         android:drawableStart="@drawable/ic_account_box_black_24dp"
         android:hint="Ваше имя"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:background="@drawable/back_round_corner_dialog"
         android:drawablePadding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -33,6 +42,9 @@
         android:id="@+id/etPost"
         android:drawableStart="@drawable/ic_local_post_office_black_24dp"
         android:hint="Ваш e-main"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:background="@drawable/back_round_corner_dialog"
         android:drawablePadding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

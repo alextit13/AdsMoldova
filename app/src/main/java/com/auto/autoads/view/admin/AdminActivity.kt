@@ -84,6 +84,10 @@ class AdminActivity : AppCompatActivity() {
         startImageChooser(bottom)
     }
 
+    fun messagesList(view:View) {
+        startActivity(Intent(this, ListMessagesAdmin::class.java))
+    }
+
     private fun startImageChooser(requestCode: Int) {
         startActivityForResult(Intent(this, FilePickerActivity::class.java).apply {
             putExtra(

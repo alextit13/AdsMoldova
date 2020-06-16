@@ -119,7 +119,11 @@
 
         <activity
             android:name=".view.admin.AdminActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+
+
+        </activity>
 
         <activity
             android:name=".view.admin.AdminListApproveActivity"
@@ -192,6 +196,7 @@
         <activity
             android:name=".view.register.ConfirmCodeActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".view.admin.ListMessagesAdmin" />
 
     </application>
 

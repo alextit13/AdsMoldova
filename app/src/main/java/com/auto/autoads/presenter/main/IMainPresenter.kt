@@ -8,4 +8,5 @@ interface IMainPresenter {
     fun onClickExtensionSearch()
     fun onOptionsItemSelected(itemId: Int?)
     fun onClickAddAd()
+    fun onClickSendMessage(title: String, message: String, name: String, email: String)
 }
