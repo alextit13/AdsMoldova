@@ -103,7 +103,7 @@ object AdminManager {
     ) {
         var index = 0
         fun delete(link: String) {
-            FirebaseStorage.getInstance().reference.child(link).delete()
+            FirebaseStorage.getInstance().getReferenceFromUrl(link).delete()
                 .addOnSuccessListener {
                     index++
                     if (index == links.size) {
