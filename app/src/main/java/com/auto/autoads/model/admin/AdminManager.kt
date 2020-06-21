@@ -77,7 +77,7 @@ object AdminManager {
     }
 
     fun deleteAd(ad: Ad, message: () -> Unit, callback: IAdsAdminResult) {
-        if (ad.linkImages != null && ad.linkImages!!.isEmpty())
+        if (ad.linkImages != null && !ad.linkImages!!.isEmpty())
             deleteImageFromRemoteDb(ad.linkImages ?: return) {
                 deleteRemoteAd(ad, message, callback)
             }
