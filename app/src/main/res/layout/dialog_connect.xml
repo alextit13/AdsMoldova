@@ -41,7 +41,7 @@
     <EditText
         android:id="@+id/etPost"
         android:drawableStart="@drawable/ic_local_post_office_black_24dp"
-        android:hint="Ваш e-main"
+        android:hint="Ваш e-mail"
         android:layout_marginTop="8dp"
         android:padding="8dp"
         android:background="@drawable/back_round_corner_dialog"
